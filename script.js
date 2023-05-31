@@ -1,4 +1,6 @@
-function valider() {
+add_btn = document.getElementById("add-btn");
+
+add_btn.addEventListener("click", function () {
     var title = document.querySelector("#title").value;
     var author = document.querySelector("#author").value;
     var isbn = document.querySelector("#isbn").value;
@@ -12,15 +14,15 @@ function valider() {
         ajouter();
     }
 }
+);
 
 function ajouter() {
-
     let tbody = document.getElementsByTagName("tbody")[0];
     var title = document.getElementById("title").value;
     var author = document.getElementById("author").value;
     var isbn = document.getElementById("isbn").value;
-    var qty = document.querySelector("#quantity").value;
-    var img = document.querySelector("#image").value;
+    var qty = document.querySelector("quantity").value;
+    var img = document.querySelector("image").value;
     var rowCount = tbody.rows.length;
 
     var trx = document.createElement("tr");
