@@ -22,8 +22,8 @@ function ajouter() {
     var title = document.getElementById("title").value;
     var author = document.getElementById("author").value;
     var isbn = document.getElementById("isbn").value;
-    var qty = document.querySelector("quantity").value;
-    var img = document.querySelector("image").value;
+    var qty = document.getElementById("quantity").value;
+    var img = document.getElementById("image").value;
     var rowCount = tbody.rows.length;
 
     var trx = document.createElement("tr");
