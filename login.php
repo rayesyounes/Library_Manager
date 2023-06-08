@@ -3,7 +3,9 @@ session_start();
 include "db.php";
 if (isset($_REQUEST["login"])) {
     if ($_REQUEST["email"] == "" or $_REQUEST["password"] == "") {
-        echo "<div class=\"alert bg-warning\"> Email or Password cannot be empty !</div>";
+        echo '<div class="alert alert-warning alert-dismissible custom-alert fade show position-fixed mt-3 start-50 translate-middle-x" role="alert">
+        <strong>Alert : </strong> Email or Password cannot be empty!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
     } else {
         $email = strip_tags(trim($_REQUEST["email"]));
         $password = strip_tags(trim($_REQUEST["password"]));
@@ -15,7 +17,9 @@ if (isset($_REQUEST["login"])) {
             $_SESSION["email"] = $email;
             header("location:index.php");
         }
-        echo "<div class=\"alert bg-danger\">Incorrect Email or Password !</div>";
+        echo '<div class="alert alert-danger alert-dismissible custom-alert fade show position-fixed mt-3 start-50 translate-middle-x" role="alert">
+        <strong>Alert : </strong> Incorrect Email or Password!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
     }
 }
 ?>
@@ -26,6 +30,7 @@ if (isset($_REQUEST["login"])) {
     <title>Login - RAYESTECH</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Nunito.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
 </head>
 
@@ -80,6 +85,6 @@ if (isset($_REQUEST["login"])) {
             </div>
         </div>
     </div>
-    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/assets/js/theme.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/theme.js"></script>
 </body>
