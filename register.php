@@ -25,34 +25,60 @@
                             <div class="text-center">
                                 <h4 class="text-dark mb-4">Create an Account!</h4>
                             </div>
-                            <form class="user">
+                            <form class="user" method="POST">
                                 <div class="row mb-3">
-                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user"
-                                            type="text" id="exampleFirstName" placeholder="First Name"
-                                            name="first_name"></div>
-                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text"
-                                            id="exampleLastName" placeholder="Last Name" name="last_name"></div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input class="form-control form-control-user" type="text" id="exampleFirstName"
+                                            placeholder="First Name" name="first_name">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input class="form-control form-control-user" type="text" id="exampleLastName"
+                                            placeholder="Last Name" name="last_name">
+                                    </div>
                                 </div>
-                                <div class="mb-3"><input class="form-control form-control-user" type="email"
-                                        id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email Address"
-                                        name="email"></div>
+
                                 <div class="row mb-3">
-                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user"
-                                            type="password" id="examplePasswordInput" placeholder="Password"
-                                            name="password"></div>
-                                    <div class="col-sm-6"><input class="form-control form-control-user" type="password"
-                                            id="exampleRepeatPasswordInput" placeholder="Repeat Password"
-                                            name="password_repeat"></div>
-                                </div><button class="btn btn-primary d-block btn-user w-100" type="submit">Register
-                                    Account</button>
-                                <hr><a class="btn btn-primary d-block btn-google btn-user w-100 mb-2" role="button"><i
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input class="form-control form-control-user" type="text" id="exampleFirstName"
+                                            placeholder="Cin" name="cin">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input class="form-control form-control-user" type="text" id="exampleLastName"
+                                            placeholder="Phone number" name="phone">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <input class="form-control form-control-user" type="email" id="exampleInputEmail"
+                                        aria-describedby="emailHelp" placeholder="Email" name="email">
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input class="form-control form-control-user" type="password"
+                                            id="examplePasswordInput" placeholder="Password" name="password">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input class="form-control form-control-user" type="password"
+                                            id="exampleRepeatPasswordInput" placeholder="Repeat_Password"
+                                            name="password_repeat">
+                                    </div>
+
+                                </div><button class="btn btn-primary d-block btn-user w-100" type="submit"
+                                    name="submit">Register Account</button>
+
+                                <hr>
+                                <a class="btn btn-primary d-block btn-google btn-user w-100 mb-2" role="button"><i
                                         class="fab fa-google"></i>&nbsp; Register with Google</a><a
                                     class="btn btn-primary d-block btn-facebook btn-user w-100" role="button"><i
-                                        class="fab fa-facebook-f"></i>&nbsp; Register with Facebook</a>
+                                        class="fab fa-facebook-f"></i>&nbsp; Register with Facebook
+                                </a>
                                 <hr>
                             </form>
-                            <div class="text-center"><a class="small" href="forgot-password.php">Forgot Password?</a></div>
-                            <div class="text-center"><a class="small" href="login.php">Already have an account? Login!</a></div>
+                            <div class="text-center"><a class="small" href="forgot-password.php">Forgot Password?</a>
+                            </div>
+                            <div class="text-center"><a class="small" href="login.php">Already have an account?
+                                    Login!</a></div>
                         </div>
                     </div>
                 </div>
@@ -64,3 +90,67 @@
 </body>
 
 </html>
+
+<?php require("db.php"); ?>
+
+<?php
+$first_name = "";
+$last_name = "";
+$email = "";
+$password = "";
+$password_repeat = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $first_name = $_REQUEST['first_name'];
+    $last_name = $_REQUEST['last_name'];
+    $cin = $_REQUEST['cin'];
+    $phone = $_REQUEST['phone'];
+    $email = $_REQUEST['email'];
+    $password = $_REQUEST['password'];
+    $password_repeat = $_REQUEST['password_repeat'];
+    $valid = true;
+
+    echo '<div class="my-3">';
+    if (empty($first_name)) {
+        echo "<h6 class='alert alert-danger my-1'>Your First Name is required</h6>";
+        $valid = false;
+    }
+    if (empty($last_name)) {
+        echo "<h6 class='alert alert-danger my-1'>Your Last Name is required</h6>";
+        $valid = false;
+    }
+    if (empty($cin)) {
+        echo "<h6 class='alert alert-danger my-1'>The Cin is required</h6>";
+        $valid = false;
+    }
+    if (empty($phone)) {
+        echo "<h6 class='alert alert-danger my-1'>the Phone number is required</h6>";
+        $valid = false;
+    }
+    if (empty($email)) {
+        echo "<h6 class='alert alert-danger my-1'>The Email is required</h6>";
+        $valid = false;
+    }
+    if (empty($password)) {
+        echo "<h6 class='alert alert-danger my-1'>The password is required</h6>";
+        $valid = false;
+    }
+    if (empty($password_repeat)) {
+        echo "<h6 class='alert alert-danger my-1'>Please repeat the password</h6>";
+        $valid = false;
+    }
+    echo '</div>';
+
+    if ($valid) {
+        try {
+            $sql = "INSERT INTO users (Cin, First_name, Last_name, Email, Phone_Number, Pass_key, Is_Admin) VALUES ('{$cin}','{$first_name}', '{$last_name}', '{$email}', '{$phone}', '{$password}', '0')";
+            $conn->query($sql);
+            // header("location:registre.php");
+        } catch (PDOException $e) {
+            echo $sql . "<br>" . $e->getMessage();
+        }
+    }
+}
+
+$conn = null;
+?>

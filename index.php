@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
 </head>
 
+<?php include("db.php"); ?>
+
 <body id="page-top">
     <div id="wrapper">
 
@@ -97,7 +99,7 @@
             </div>
 
             <?php include("footer.php"); ?>
-            
+
         </div><a title="#" class="border rounded d-inline scroll-to-top" href="#page-top"><i
                 class="fas fa-angle-up"></i></a>
     </div>
