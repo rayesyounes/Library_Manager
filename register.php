@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -60,8 +57,8 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <input class="form-control form-control-user" type="password"
-                                            id="exampleRepeatPasswordInput" placeholder="Repeat_Password"
-                                            name="password_repeat">
+                                            id="exampleRepeatPasswordInput" placeholder="Confirm Password"
+                                            name="password_confirm">
                                     </div>
 
                                 </div><button class="btn btn-primary d-block btn-user w-100" type="submit"
@@ -98,7 +95,7 @@ $first_name = "";
 $last_name = "";
 $email = "";
 $password = "";
-$password_repeat = "";
+$password_confirm = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $first_name = $_REQUEST['first_name'];
@@ -107,7 +104,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = $_REQUEST['phone'];
     $email = $_REQUEST['email'];
     $password = $_REQUEST['password'];
-    $password_repeat = $_REQUEST['password_repeat'];
+    $password_confirm = $_REQUEST['password_confirm'];
+
+    // $duplicate = 
     $valid = true;
 
     echo '<div class="my-3">';
@@ -135,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<h6 class='alert alert-danger my-1'>The password is required</h6>";
         $valid = false;
     }
-    if (empty($password_repeat)) {
+    if (empty($password_confirm)) {
         echo "<h6 class='alert alert-danger my-1'>Please repeat the password</h6>";
         $valid = false;
     }
@@ -143,11 +142,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($valid) {
         try {
-            $sql = "INSERT INTO users (Cin, First_name, Last_name, Email, Phone_Number, Pass_key, Is_Admin) VALUES ('{$cin}','{$first_name}', '{$last_name}', '{$email}', '{$phone}', '{$password}', '0')";
-            $conn->query($sql);
+            $sql_insert = "INSERT INTO users (Cin, First_name, Last_name, Email, Phone_Number, Pass_key, Is_Admin) VALUES ('{$cin}','{$first_name}', '{$last_name}', '{$email}', '{$phone}', '{$password_confirm}', '0')";
+            $conn->query($sql_insert);
             // header("location:registre.php");
         } catch (PDOException $e) {
-            echo $sql . "<br>" . $e->getMessage();
+            echo $sql_insert . "<br>" . $e->getMessage();
         }
     }
 }

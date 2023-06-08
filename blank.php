@@ -1,5 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+if (!isset($_SESSION["email"])) {
+    header("location:login.php");
+}
+?>
 
 <head>
     <meta charset="utf-8">
@@ -32,5 +36,3 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/theme.js"></script>
 </body>
-
-</html>

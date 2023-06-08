@@ -1,5 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+include "db.php";
+if (isset($_REQUEST["login"])) {
+    if ($_REQUEST["email"] == "" or $_REQUEST["password"] == "") {
+        echo "<div class=\"alert bg-warning\"> Email or Password cannot be empty !</div>";
+    } else {
+        $email = strip_tags(trim($_REQUEST["email"]));
+        $password = strip_tags(trim($_REQUEST["password"]));
+
+        $query = $conn->prepare("SELECT * FROM users WHERE email=? AND pass_key=?");
+        $query->execute(array($email, $password));
+        $control = $query->fetch(PDO::FETCH_OBJ);
+        if ($control > 0) {
+            $_SESSION["email"] = $email;
+            header("location:index.php");
+        }
+        echo "<div class=\"alert bg-danger\">Incorrect Email or Password !</div>";
+    }
+}
+?>
 
 <head>
     <meta charset="utf-8">
@@ -41,16 +60,18 @@
                                                         class="form-check-label custom-control-label"
                                                         for="formCheck-1">Remember Me</label></div>
                                             </div>
-                                        </div><button class="btn btn-primary d-block btn-user w-100"
-                                            type="submit">Login</button>
+                                        </div><button class="btn btn-primary d-block btn-user w-100" type="submit"
+                                            name="login">Login</button>
                                         <hr><a class="btn btn-primary d-block btn-google btn-user w-100 mb-2"
                                             role="button"><i class="fab fa-google"></i>&nbsp; Login with Google</a><a
                                             class="btn btn-primary d-block btn-facebook btn-user w-100" role="button"><i
                                                 class="fab fa-facebook-f"></i>&nbsp; Login with Facebook</a>
                                         <hr>
                                     </form>
-                                    <div class="text-center"><a class="small" href="forgot-password.php">Forgot Password?</a></div>
-                                    <div class="text-center"><a class="small" href="register.php">Create an Account!</a></div>
+                                    <div class="text-center"><a class="small" href="forgot-password.php">Forgot
+                                            Password?</a></div>
+                                    <div class="text-center"><a class="small" href="register.php">Create an Account!</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -62,5 +83,3 @@
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="/assets/js/theme.js"></script>
 </body>
-
-</html>
