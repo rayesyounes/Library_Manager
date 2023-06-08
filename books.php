@@ -23,8 +23,7 @@
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-2">
                         <h3 class="text-dark mb-4">Books</h3>
-                        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#">&nbsp;Add
-                            Book</a>
+                        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#">&nbsp;Add Book</a>
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
