@@ -29,11 +29,9 @@
                     </div>
                 </div>
             </div>
-            <footer class="bg-white sticky-footer">
-                <div class="container my-auto">
-                    <div class="text-center my-auto copyright"><span>Copyright © RAYESTECH 2023</span></div>
-                </div>
-            </footer>
+            
+            <?php include("footer.php"); ?>
+
         </div><a title="#" class="border rounded d-inline scroll-to-top" href="#page-top"><i
                 class="fas fa-angle-up"></i></a>
     </div>
