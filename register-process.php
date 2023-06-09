@@ -70,8 +70,8 @@ $stmt->bind_param(
 
 if ($stmt->execute()) {
     echo "SUCCESS";
-    // header("Location: signup-success.html");
-    // exit;
+    header("Location: login.php");
+    exit;
 } else {
     die($mysqli->error . " " . $mysqli->errno);
 }
