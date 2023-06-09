@@ -3,7 +3,7 @@ session_start();
 include "db.php";
 if (isset($_REQUEST["login"])) {
     if ($_REQUEST["email"] == "" or $_REQUEST["password"] == "") {
-        echo '<div class="alert alert-warning alert-dismissible custom-alert fade show position-fixed mt-3 start-50 translate-middle-x" role="alert">
+        echo '<div class="alert alert-warning alert-dismissible custom-alert top-0 fade show position-fixed mt-3 start-50 translate-middle-x" role="alert">
         <strong>Alert : </strong> Email or Password cannot be empty!
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
     } else {
@@ -17,7 +17,7 @@ if (isset($_REQUEST["login"])) {
             $_SESSION["email"] = $email;
             header("location:index.php");
         }
-        echo '<div class="alert alert-danger alert-dismissible custom-alert fade show position-fixed mt-3 start-50 translate-middle-x" role="alert">
+        echo '<div class="alert alert-danger alert-dismissible custom-alert top-0 fade show position-fixed mt-3 start-50 translate-middle-x" role="alert">
         <strong>Alert : </strong> Incorrect Email or Password!
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
     }
@@ -34,7 +34,7 @@ if (isset($_REQUEST["login"])) {
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-primary d-flex align-items-center">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-9 col-lg-12 col-xl-10">
@@ -51,12 +51,17 @@ if (isset($_REQUEST["login"])) {
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4">Welcome Back!</h4>
                                     </div>
-                                    <form class="user">
-                                        <div class="mb-3"><input class="form-control form-control-user" type="email"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address..." name="email"></div>
-                                        <div class="mb-3"><input class="form-control form-control-user" type="password"
-                                                id="exampleInputPassword" placeholder="Password" name="password"></div>
+                                    <form class="user" method="POST" action="" novalidate>
+                                        
+                                        <div class="mb-3">
+                                            <input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email">
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password" name="password">
+                                        </div>
+
+
                                         <div class="mb-3">
                                             <div class="custom-control custom-checkbox small">
                                                 <div class="form-check"><input
