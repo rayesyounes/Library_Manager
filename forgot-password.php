@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Forgotten Password - RAYESTECH</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Nunito.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body class="bg-gradient-primary">
@@ -28,7 +30,7 @@
                                         <p class="mb-4">We get it, stuff happens. Just enter your email address below
                                             and we'll send you a link to reset your password!</p>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" id="reset-password_form">
                                         <div class="mb-3"><input class="form-control form-control-user" type="email"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address..." name="email"></div><button
@@ -49,7 +51,7 @@
         </div>
     </div>
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/script.js"></script>
 </body>
 
 </html>

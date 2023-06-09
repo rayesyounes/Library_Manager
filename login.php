@@ -29,9 +29,9 @@ if (isset($_REQUEST["login"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Login - RAYESTECH</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Nunito.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
 </head>
 
 <body class="bg-gradient-primary d-flex align-items-center">
@@ -43,7 +43,7 @@ if (isset($_REQUEST["login"])) {
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-flex">
                                 <div class="flex-grow-1 bg-login-image"
-                                    style="background-image: url(&quot;assets/img/avatars/pexels-olena-bohovyk-3646172.jpg?h=bd5ac307f144ab65ca2625554428a65a&quot;);">
+                                    style="background-image: url(&quot;assets/img/avatars/pexels-olena-bohovyk-3646172.jpg&quot;);">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -51,14 +51,17 @@ if (isset($_REQUEST["login"])) {
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4">Welcome Back!</h4>
                                     </div>
-                                    <form class="user" method="POST" action="" novalidate>
-                                        
+                                    <form class="user" id="login_form" method="POST" action="" novalidate>
+
                                         <div class="mb-3">
-                                            <input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email">
+                                            <input class="form-control form-control-user" type="email"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="Enter Email Address..." name="email">
                                         </div>
-                                        
+
                                         <div class="mb-3">
-                                            <input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password" name="password">
+                                            <input class="form-control form-control-user" type="password"
+                                                id="exampleInputPassword" placeholder="Password" name="password">
                                         </div>
 
 
@@ -90,6 +93,6 @@ if (isset($_REQUEST["login"])) {
             </div>
         </div>
     </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/theme.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
 </body>

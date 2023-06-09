@@ -3,8 +3,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Register - RAYESTECH</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/Nunito.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/Nunito.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body class="bg-gradient-primary d-flex align-items-center">
@@ -22,54 +23,56 @@
                             <div class="text-center">
                                 <h4 class="text-dark mb-4">Create an Account!</h4>
                             </div>
-                            <form class="user" method="post" action="register-process.php" novalidate>
+                            <form class="user" id="register_form" method="post" action="register-process.php"
+                                novalidate>
 
-                                <div class="row mb-3">                                
+                                <div class="row mb-3">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label for="first_name"></label>
-                                        <input class="form-control form-control-user" type="text" id="exampleFirstName"
+
+                                        <input class="form-control form-control-user" type="text" id="first_name"
                                             placeholder="First Name" name="first_name">
                                     </div>
                                     <div class="col-sm-6">
-                                        <label for="last_name"></label>
-                                        <input class="form-control form-control-user" type="text" id="exampleLastName"
+
+                                        <input class="form-control form-control-user" type="text" id="last_name"
                                             placeholder="Last Name" name="last_name">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label for="cin"></label>
-                                        <input class="form-control form-control-user" type="text" id="exampleFirstName"
+
+                                        <input class="form-control form-control-user" type="text" id="cin"
                                             placeholder="Cin" name="cin">
                                     </div>
                                     <div class="col-sm-6">
-                                        <label for="phone"></label>
-                                        <input class="form-control form-control-user" type="text" id="exampleLastName"
+
+                                        <input class="form-control form-control-user" type="text" id="phone"
                                             placeholder="Phone number" name="phone">
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="email"></label>
-                                    <input class="form-control form-control-user" type="email" id="exampleInputEmail"
+
+                                    <input class="form-control form-control-user" type="email" id="email"
                                         aria-describedby="emailHelp" placeholder="Email" name="email">
                                 </div>
 
                                 <div class="row mb-3">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label for="password"></label>
+
                                         <input class="form-control form-control-user" type="password"
-                                            id="examplePasswordInput" placeholder="Password" name="password">
+                                            id="password" placeholder="Password" name="password">
                                     </div>
                                     <div class="col-sm-6">
-                                        <label for="password_confirm"></label>
+
                                         <input class="form-control form-control-user" type="password"
-                                            id="exampleRepeatPasswordInput" placeholder="Confirm Password"
+                                            id="password_confirm" placeholder="Confirm Password"
                                             name="password_confirm">
                                     </div>
 
-                                </div><button class="btn btn-primary d-block btn-user w-100" type="submit"
+                                </div>
+                                <button class="btn btn-primary d-block btn-user w-100" type="submit"
                                     name="submit">Register Account</button>
 
                                 <hr>
@@ -90,6 +93,6 @@
             </div>
         </div>
     </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/theme.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
 </body>

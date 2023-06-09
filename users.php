@@ -10,20 +10,20 @@ if (!isset($_SESSION["email"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Users - RAYESTECH</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/Nunito.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/Nunito.css">
 </head>
 
 <body id="page-top">
     <div id="wrapper">
-        
+
         <?php include("sidebar.php"); ?>
 
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
-                
+
                 <?php include("navbar.php"); ?>
-                
+
                 <div class="container-fluid">
                     <h3 class="text-dark mb-4">Users</h3>
                     <div class="card shadow">
@@ -108,12 +108,12 @@ if (!isset($_SESSION["email"])) {
                     </div>
                 </div>
             </div>
-            
+
             <?php include("footer.php"); ?>
-            
+
         </div><a title="#" class="border rounded d-inline scroll-to-top" href="#page-top"><i
                 class="fas fa-angle-up"></i></a>
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
