@@ -94,5 +94,6 @@ if (isset($_REQUEST["login"])) {
         </div>
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js" defer></script>
+    <!-- <script src="assets/js/validation.js" defer></script> -->
     <script src="assets/js/script.js" defer></script>
 </body>

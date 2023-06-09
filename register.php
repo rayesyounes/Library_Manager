@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-flex">
                         <div class="flex-grow-1 bg-register-image"
-                            style="background-image: url(&quot;assets/img/avatars/pexels-mark-cruzat-3494806.jpg&quot;);">
+                            style="background-image: url(assets/img/avatars/pexels-mark-cruzat-3494806.jpg);">
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -94,5 +94,6 @@
         </div>
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js" defer></script>
+    <!-- <script src="assets/js/validation.js" defer></script> -->
     <script src="assets/js/script.js" defer></script>
 </body>
