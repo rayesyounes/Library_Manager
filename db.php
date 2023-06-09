@@ -1,16 +1,21 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
 $password = "";
+$username = "root";
+$host = "localhost";
 $dbname = "library_management";
-$conn;
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+$mysqli = new mysqli(
+    hostname: $host,
+    username: $username,
+    password: $password,
+    database: $dbname
+);
+
+if ($mysqli->connect_errno) {
+    die("Connection error: " . $mysqli->connect_error);
 }
+
+return $mysqli;
 
 ?>

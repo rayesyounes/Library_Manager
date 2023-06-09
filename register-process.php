@@ -1,6 +1,5 @@
 <?php
 
-require("db.php");
 
 if (empty($_POST["first_name"])) {
     die("First Name is required");
@@ -43,8 +42,33 @@ if ($_POST["password"] !== $_POST["password_confirm"]) {
 }
 
 $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
-
-
+$false = 0;
 
 print_r($_REQUEST);
 var_dump($password_hash);
+
+$mysqli = require("db.php");
+
+$sql = "INSERT INTO users (Cin, First_name, Last_name, Email, Phone_Number, Pass_key, Is_Admin) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+$stmt = $mysqli->stmt_init();
+
+if (!$stmt->prepare($sql)) {
+    die("SQL error: " . $mysqli->error);
+}
+
+$stmt->bind_param(
+    "sssssss",
+    $_POST["cin"],
+    $_POST["first_name"],
+    $_POST["last_name"],
+    $_POST["email"],
+    $_POST["phone"],
+    $password_hash,
+    $false
+);
+
+$stmt->execute();
+echo "SUCCESS";
+
+?>
