@@ -41,3 +41,10 @@ if (!preg_match("/[0-9]/", $_POST["password"])) {
 if ($_POST["password"] !== $_POST["password_confirm"]) {
     die("Passwords must match");
 }
+
+$password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
+
+
+
+print_r($_REQUEST);
+var_dump($password_hash);
