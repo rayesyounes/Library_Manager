@@ -68,7 +68,11 @@ $stmt->bind_param(
     $false
 );
 
-$stmt->execute();
-echo "SUCCESS";
-
+if ($stmt->execute()) {
+    echo "SUCCESS";
+    // header("Location: signup-success.html");
+    // exit;
+} else {
+    die($mysqli->error . " " . $mysqli->errno);
+}
 ?>
