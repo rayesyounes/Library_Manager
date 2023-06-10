@@ -11,6 +11,7 @@ if (isset($_SESSION["user_id"])) {
 }
 ?>
 
+<?php if (isset($user)): ?>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -70,38 +71,6 @@ if (isset($_SESSION["user_id"])) {
                             </div>
                         </div>
                         <div class="col-lg-8">
-                            <div class="row mb-3 d-none">
-                                <div class="col">
-                                    <div class="card text-white bg-primary shadow">
-                                        <div class="card-body">
-                                            <div class="row mb-2">
-                                                <div class="col">
-                                                    <p class="m-0">Peformance</p>
-                                                    <p class="m-0"><strong>65.2%</strong></p>
-                                                </div>
-                                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
-                                            </div>
-                                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5%
-                                                since last month</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card text-white bg-success shadow">
-                                        <div class="card-body">
-                                            <div class="row mb-2">
-                                                <div class="col">
-                                                    <p class="m-0">Peformance</p>
-                                                    <p class="m-0"><strong>65.2%</strong></p>
-                                                </div>
-                                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
-                                            </div>
-                                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5%
-                                                since last month</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="row">
                                 <div class="col">
                                     <div class="card shadow mb-3">
@@ -115,13 +84,13 @@ if (isset($_SESSION["user_id"])) {
                                                         <div class="mb-3"><label class="form-label"
                                                                 for="username"><strong>Username</strong></label><input
                                                                 class="form-control" type="text" id="username"
-                                                                placeholder="user.name" name="username"></div>
+                                                                placeholder="<?php echo htmlspecialchars($user["Last_Name"] . " " . $user["First_Name"]); ?>" name="username"></div>
                                                     </div>
                                                     <div class="col">
                                                         <div class="mb-3"><label class="form-label"
                                                                 for="email"><strong>Email Address</strong></label><input
                                                                 class="form-control" type="email" id="email"
-                                                                placeholder="user@example.com" name="email"></div>
+                                                                placeholder="<?php echo htmlspecialchars($user["Email"]); ?>" name="email"></div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -129,14 +98,14 @@ if (isset($_SESSION["user_id"])) {
                                                         <div class="mb-3"><label class="form-label"
                                                                 for="first_name"><strong>First
                                                                     Name</strong></label><input class="form-control"
-                                                                type="text" id="first_name" placeholder="John"
+                                                                type="text" id="first_name" placeholder="<?php echo htmlspecialchars($user["First_Name"]); ?>"
                                                                 name="first_name"></div>
                                                     </div>
                                                     <div class="col">
                                                         <div class="mb-3"><label class="form-label"
                                                                 for="last_name"><strong>Last Name</strong></label><input
                                                                 class="form-control" type="text" id="last_name"
-                                                                placeholder="Doe" name="last_name"></div>
+                                                                placeholder="<?php echo htmlspecialchars($user["Last_Name"]); ?>" name="last_name"></div>
                                                     </div>
                                                 </div>
                                                 <div class="mb-3"><button class="btn btn-primary btn-sm"
@@ -188,3 +157,4 @@ if (isset($_SESSION["user_id"])) {
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
+<?php endif; ?>
