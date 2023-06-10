@@ -18,6 +18,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="books.php"><i class="fas fa-table"></i><span>Books</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="emprunts.php"><i class="fas fa-table"></i><span>Emprunts</span></a>
+            </li>
         </ul>
         <div class="text-center d-none d-md-inline"><button title="#" class="btn rounded-circle border-0"
                 id="sidebarToggle" type="button"></button></div>
