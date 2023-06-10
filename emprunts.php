@@ -66,9 +66,9 @@ if (isset($_SESSION["user_id"])) {
                                         <tr>
                                             <th>User</th>
                                             <th>Book</th>
-                                            <th>Start_Date</th>
-                                            <th>End_Date</th>
-                                            <th>Returned</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -82,9 +82,9 @@ if (isset($_SESSION["user_id"])) {
                                         <tr>
                                             <td><strong>User</strong></td>
                                             <td><strong>Book</strong></td>
-                                            <td><strong>Start_Date</strong></td>
-                                            <td><strong>End_Date</strong></td>
-                                            <td><strong>Returned</strong></td>
+                                            <td><strong>Start Date</strong></td>
+                                            <td><strong>End Date</strong></td>
+                                            <td><strong>Status</strong></td>
                                             <td><strong>Action</strong></td>
                                         </tr>
                                     </tfoot>
