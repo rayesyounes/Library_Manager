@@ -1,6 +1,4 @@
 <?php
-
-
 if (empty($_POST["first_name"])) {
     die("First Name is required");
 }
@@ -37,14 +35,9 @@ if (!preg_match("/[0-9]/", $_POST["password"])) {
     die("Password must contain at least one number");
 }
 
-if ($_POST["password"] !== $_POST["password_confirm"]) {
-    die("Passwords must match");
-}
-
 $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-print_r($_REQUEST);
-var_dump($password_hash);
+$isAdmin = isset($_POST["formCheck"]) ? 1 : 0;
 
 $mysqli = require("db.php");
 
@@ -57,14 +50,14 @@ if (!$stmt->prepare($sql)) {
 }
 
 $stmt->bind_param(
-    "sssssss",
+    "ssssssi",
     $_POST["cin"],
     $_POST["first_name"],
     $_POST["last_name"],
     $_POST["email"],
     $_POST["phone"],
     $password_hash,
-    
+    $isAdmin
 );
 
 if ($stmt->execute()) {
