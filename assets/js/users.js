@@ -14,3 +14,15 @@ addUserButton.addEventListener('click', function (event) {
 hideModalButton.addEventListener('click', function () {
     addUserModal.style.display = 'none'; // Hide the modal
 });
+
+function editUser(userId) {
+    // Handle edit button click event
+    console.log("Edit user with ID: " + userId);
+    // Add your logic for editing the user here
+}
+
+function deleteUser(userId) {
+    // Handle delete button click event
+    console.log("Delete user with ID: " + userId);
+    // Add your logic for deleting the user here
+}

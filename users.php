@@ -92,7 +92,7 @@ if (isset($_SESSION["user_id"])) {
                                         <button class="btn btn-primary btn-user w-50" type="submit" name="add">add
                                             user</button>
                                         <button id="hideModalButton"
-                                            class="btn btn-secondary btn-user w-400">Cancel</button>
+                                            class="btn btn-secondary btn-user w-40">Cancel</button>
                                     </div>
                                 </form>
                             </div>
@@ -132,20 +132,44 @@ if (isset($_SESSION["user_id"])) {
                                             <th>Cin</th>
                                             <th>Phone</th>
                                             <th>Email</th>
-                                            <th>Action</th>
+                                            <th colspan="2">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><img title="" class="rounded-circle me-2" width="30" height="30"
-                                                    src="assets/img/avatars/stockholm.jpg">Rayes
-                                                Younes</td>
-                                            <td>L649596</td>
-                                            <td>0642599866</td>
-                                            <td>Younes@email.com</td>
-                                            <td></td>
-                                        </tr>
-
+                                        <?php
+                                        $mysqli = require("db.php");
+                                        $sql = "SELECT * FROM users WHERE Is_Admin = 0";
+                                        $result = $mysqli->query($sql);
+                                        ?>
+                                        <?php while ($user = $result->fetch_assoc()) { ;?>
+                                            <tr>
+                                                <td>
+                                                    <img title="" class="rounded-circle me-2" width="30" height="30"
+                                                        src="assets/img/avatars/stockholm.jpg">
+                                                    <?php echo $user['First_Name'] . ' ' . $user['Last_Name']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $user['Cin']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $user['Phone_Number']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $user['Email']; ?>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-secondary btn-sm d-none d-sm-inline-block"
+                                                        href="user-edit-process.php?id=<?php echo $user['ID_User']; ?>">Edit</a>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-danger btn-sm d-none d-sm-inline-block"
+                                                        href="user-delete-process.php?id=<?php echo $user['ID_User']; ?>">Delete</a>
+                                                </td>
+                                            </tr>
+                                            
+                                        <?php }
+                                        mysqli_close($mysqli);
+                                        ?>
                                     </tbody>
                                     <tfoot>
                                         <tr>
@@ -153,7 +177,7 @@ if (isset($_SESSION["user_id"])) {
                                             <td><strong>Cin</strong></td>
                                             <td><strong>Phone</strong></td>
                                             <td><strong>Email</strong></td>
-                                            <td><strong>Action</strong></td>
+                                            <td colspan="2"><strong>Actions</strong></td>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -171,8 +195,8 @@ if (isset($_SESSION["user_id"])) {
 
             <?php include("footer.php"); ?>
 
-        </div><a title="#" class="border rounded d-inline scroll-to-top" href="#page-top"><i
-                class="fas fa-angle-up"></i></a>
+        </div>
+        <a class="border rounded d-block scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
     <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
     <script src="assets/bootstrap/js/bootstrap.min.js" defer></script>

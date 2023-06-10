@@ -45,7 +45,8 @@ if (isset($_SESSION["user_id"])) {
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
-                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>TOTAL
+                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"
+                                                style="font-size: 16px;"><span>TOTAL
                                                     BOOKS</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span
                                                     style="color: var(--bs-black);font-size: 20px;font-weight: bold;">40</span>
@@ -61,7 +62,8 @@ if (isset($_SESSION["user_id"])) {
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
-                                            <div class="text-uppercase text-success fw-bold text-xs mb-1">
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"
+                                                style="font-size: 16px;">
                                                 <span>AVAILABLE BOOKS</span>
                                             </div>
                                             <div class="text-dark fw-bold h5 mb-0"><span
@@ -79,7 +81,8 @@ if (isset($_SESSION["user_id"])) {
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
-                                            <div class="text-uppercase text-info fw-bold text-xs mb-1"><span>ISSUED
+                                            <div class="text-uppercase text-info fw-bold text-xs mb-1"
+                                                style="font-size: 16px;"><span>ISSUED
                                                     BOOKS</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span
                                                     style="color: var(--bs-black);font-size: 20px;font-weight: bold;">05</span>
@@ -96,7 +99,8 @@ if (isset($_SESSION["user_id"])) {
                                 <div class="card-body">
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
-                                            <div class="text-uppercase text-warning fw-bold text-xs mb-1"><span>RETURNED
+                                            <div class="text-uppercase text-warning fw-bold text-xs mb-1"
+                                                style="font-size: 16px;"><span>RETURNED
                                                     BOOKS</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span
                                                     style="color: var(--bs-black);font-size: 20px;font-weight: bold;">18</span>

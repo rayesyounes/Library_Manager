@@ -62,7 +62,7 @@
 
     // Scroll to top button appear
     window.addEventListener('scroll', function () {
-      var scrollDistance = window.pageYOffset;
+      var scrollDistance = window.scrollY;
 
       //check if user is scrolling up
       if (scrollDistance > 100) {

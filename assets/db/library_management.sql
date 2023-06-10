@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2023 at 04:17 PM
+-- Generation Time: Jun 10, 2023 at 09:18 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `books` (
-  `ID` int(11) NOT NULL,
+  `ID_Book` int(11) NOT NULL,
   `Title` varchar(255) NOT NULL,
-  `Auteur` varchar(255) NOT NULL,
+  `Author` varchar(255) NOT NULL,
   `ISBN` varchar(255) NOT NULL,
   `Quantity` int(11) NOT NULL,
   `Picture` varchar(255) NOT NULL
@@ -43,7 +43,7 @@ CREATE TABLE `books` (
 --
 
 CREATE TABLE `emprunts` (
-  `ID` int(11) NOT NULL,
+  `ID_Emprunt` int(11) NOT NULL,
   `ID_User` int(11) NOT NULL,
   `ID_Book` int(11) NOT NULL,
   `Start_Date` date NOT NULL,
@@ -58,15 +58,22 @@ CREATE TABLE `emprunts` (
 --
 
 CREATE TABLE `users` (
-  `ID` int(11) NOT NULL,
+  `ID_User` int(11) NOT NULL,
   `Cin` varchar(255) NOT NULL,
   `First_Name` varchar(255) NOT NULL,
   `Last_Name` varchar(255) NOT NULL,
-  `Emal` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
   `Phone_Number` varchar(255) NOT NULL,
-  `Password` varchar(255) NOT NULL,
+  `Pass_key` varchar(255) NOT NULL,
   `Is_Admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`ID_User`, `Cin`, `First_Name`, `Last_Name`, `Email`, `Phone_Number`, `Pass_key`, `Is_Admin`) VALUES
+(1, 'L649596', 'Younes', 'Rayes', 'rayesyounes88@gmail.com', '0642599866', '$2y$10$Z0c6CkVEMMI7yH4Y7cuRcOFwCd99VnQrIRWkj1J4vVPI67f0m64Hm', 1);
 
 --
 -- Indexes for dumped tables
@@ -76,21 +83,46 @@ CREATE TABLE `users` (
 -- Indexes for table `books`
 --
 ALTER TABLE `books`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID_Book`);
 
 --
 -- Indexes for table `emprunts`
 --
 ALTER TABLE `emprunts`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID_User` (`ID_User`),
-  ADD KEY `ID_Book` (`ID_Book`);
+  ADD PRIMARY KEY (`ID_Emprunt`),
+  ADD KEY `Book_key` (`ID_Book`),
+  ADD KEY `User_Key` (`ID_User`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID_User`),
+  ADD UNIQUE KEY `Email` (`Email`),
+  ADD UNIQUE KEY `Cin` (`Cin`),
+  ADD UNIQUE KEY `Phone_Number` (`Phone_Number`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `books`
+--
+ALTER TABLE `books`
+  MODIFY `ID_Book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `emprunts`
+--
+ALTER TABLE `emprunts`
+  MODIFY `ID_Emprunt` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `ID_User` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- Constraints for dumped tables
@@ -100,8 +132,8 @@ ALTER TABLE `users`
 -- Constraints for table `emprunts`
 --
 ALTER TABLE `emprunts`
-  ADD CONSTRAINT `ID_Book` FOREIGN KEY (`ID_Book`) REFERENCES `books` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ID_User` FOREIGN KEY (`ID_User`) REFERENCES `users` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `Book_key` FOREIGN KEY (`ID_Book`) REFERENCES `books` (`ID_Book`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `User_Key` FOREIGN KEY (`ID_User`) REFERENCES `users` (`ID_User`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
