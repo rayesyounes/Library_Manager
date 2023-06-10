@@ -2,7 +2,6 @@
     z-index: 9999;
 }
 
-
-.error-sign {
-    border: 0.2rem solid #e74c3c;
+.input-group.btn {
+    z-index: -1;
 }

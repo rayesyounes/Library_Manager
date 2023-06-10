@@ -9,7 +9,7 @@
 </head>
 
 <body class="bg-gradient-primary d-flex align-items-center">
-    <div class="container">
+    <div class="container-fluid">
         <div class="card shadow-lg o-hidden border-0">
             <div class="card-body p-0">
                 <div class="row">

@@ -19,6 +19,7 @@ if (isset($_SESSION["user_id"])) {
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Nunito.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/users.css">
 </head>
 
 <body id="page-top">
@@ -34,9 +35,16 @@ if (isset($_SESSION["user_id"])) {
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-2">
                         <h3 class="text-dark mb-4">Users</h3>
-                        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#">&nbsp;Add
-                            User</a>
+                        <a id="addUserButton" class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button"
+                            href="#">&nbsp;Add User</a>
                     </div>
+                    <div id="addUserModal" class="modal">
+                        <div class="modal-content">
+                            <?php include("add-user.php"); ?>
+                        </div>
+                    </div>
+
+
                     <div class="card shadow">
                         <div class="card-header py-3">
                             <p class="text-primary m-0 fw-bold">Users Info</p>
@@ -100,20 +108,6 @@ if (isset($_SESSION["user_id"])) {
                                     <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">
                                         Showing 1 to 10 of 27</p>
                                 </div>
-                                <div class="col-md-6">
-                                    <nav
-                                        class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
-                                        <ul class="pagination">
-                                            <li class="page-item disabled"><a class="page-link" aria-label="Previous"
-                                                    href="#"><span aria-hidden="true">«</span></a></li>
-                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span
-                                                        aria-hidden="true">»</span></a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -127,4 +121,5 @@ if (isset($_SESSION["user_id"])) {
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/users.js"></script>
 </body>
