@@ -63,14 +63,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                                         <div class="mb-3">
                                             <input class="form-control form-control-user" type="email"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                id="email" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address..." name="email"
                                                 value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
                                         </div>
 
                                         <div class="mb-3">
                                             <input class="form-control form-control-user" type="password"
-                                                id="exampleInputPassword" placeholder="Password" name="password">
+                                                id="Password" placeholder="Password" name="password">
                                         </div>
 
 
@@ -102,7 +102,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
         </div>
     </div>
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
     <script src="assets/bootstrap/js/bootstrap.min.js" defer></script>
-    <!-- <script src="assets/js/validation.js" defer></script> -->
+    <script src="assets/js/validation-login.js" defer></script>
     <script src="assets/js/script.js" defer></script>
 </body>

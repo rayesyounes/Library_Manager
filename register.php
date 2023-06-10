@@ -23,7 +23,7 @@
                             <div class="text-center">
                                 <h4 class="text-dark mb-4">Create an Account!</h4>
                             </div>
-                            <form class="user" id="register_form" method="post" action="register-process.php"
+                            <form action="register-process.php" class="user" id="register_form" method="post"
                                 novalidate>
 
                                 <div class="row mb-3">
@@ -61,8 +61,8 @@
                                 <div class="row mb-3">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
 
-                                        <input class="form-control form-control-user" type="password"
-                                            id="password" placeholder="Password" name="password">
+                                        <input class="form-control form-control-user" type="password" id="password"
+                                            placeholder="Password" name="password">
                                     </div>
                                     <div class="col-sm-6">
 
@@ -73,7 +73,7 @@
 
                                 </div>
                                 <button class="btn btn-primary d-block btn-user w-100" type="submit"
-                                    name="submit">Register Account</button>
+                                    name="register">Register Account</button>
 
                                 <hr>
                                 <a class="btn btn-primary d-block btn-google btn-user w-100 mb-2" role="button"><i
@@ -93,7 +93,8 @@
             </div>
         </div>
     </div>
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
     <script src="assets/bootstrap/js/bootstrap.min.js" defer></script>
-    <!-- <script src="assets/js/validation.js" defer></script> -->
+    <script src="assets/js/validation-register.js" defer></script>
     <script src="assets/js/script.js" defer></script>
 </body>
