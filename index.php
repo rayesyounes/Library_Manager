@@ -1,6 +1,12 @@
 <?php
 session_start();
-if (!isset($_SESSION["email"])) {
+
+if (isset($_SESSION["user_id"])) {
+    $mysqli = require "db.php";
+    $sql = "SELECT * FROM users WHERE ID_User = {$_SESSION["user_id"]}";
+    $result = $mysqli->query($sql);
+    $user = $result->fetch_assoc();
+} else {
     header("location:login.php");
 }
 ?>
@@ -12,6 +18,7 @@ if (!isset($_SESSION["email"])) {
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Nunito.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body id="page-top">
@@ -23,6 +30,8 @@ if (!isset($_SESSION["email"])) {
             <div id="content">
 
                 <?php include("navbar.php"); ?>
+
+
 
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">

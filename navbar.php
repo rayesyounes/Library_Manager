@@ -1,3 +1,13 @@
+<?php if (isset($user)): ?>
+    <div class="alert alert-success alert-dismissible custom-alert top-0 fade show position-fixed mt-3 start-50 translate-middle-x"
+        role="alert">
+        <em><strong>Hello
+                <?php echo htmlspecialchars($user["Last_Name"]); ?>, Welcome back!
+            </strong></em>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<?php endif; ?>
+
 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
     <div class="container-fluid"><button title="#" class="btn btn-link d-md-none rounded-circle me-3"
             id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>

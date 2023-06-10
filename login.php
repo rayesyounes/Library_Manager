@@ -1,26 +1,27 @@
 <?php
-session_start();
-include "db.php";
-if (isset($_REQUEST["login"])) {
-    if ($_REQUEST["email"] == "" or $_REQUEST["password"] == "") {
-        echo '<div class="alert alert-warning alert-dismissible custom-alert top-0 fade show position-fixed mt-3 start-50 translate-middle-x" role="alert">
-        <strong>Alert : </strong> Email or Password cannot be empty!
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
-    } else {
-        $email = strip_tags(trim($_REQUEST["email"]));
-        $password = strip_tags(trim($_REQUEST["password"]));
 
-        $query = $conn->prepare("SELECT * FROM users WHERE email=? AND pass_key=?");
-        $query->execute(array($email, $password));
-        $control = $query->fetch(PDO::FETCH_OBJ);
-        if ($control > 0) {
-            $_SESSION["email"] = $email;
-            header("location:index.php");
+$is_invalid = false;
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $mysqli = require "db.php";
+    $sql = sprintf("SELECT * FROM users WHERE email = '%s'", $mysqli->real_escape_string($_POST["email"]));
+    $result = $mysqli->query($sql);
+    $user = $result->fetch_assoc();
+    if ($user) {
+
+        if (password_verify($_POST["password"], $user["Pass_key"])) {
+
+            session_start();
+            session_regenerate_id();
+            $_SESSION["user_id"] = $user["ID_User"];
+
+            header("Location: index.php");
+            exit;
         }
-        echo '<div class="alert alert-danger alert-dismissible custom-alert top-0 fade show position-fixed mt-3 start-50 translate-middle-x" role="alert">
-        <strong>Alert : </strong> Incorrect Email or Password!
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
     }
+
+    $is_invalid = true;
 }
 ?>
 
@@ -51,12 +52,20 @@ if (isset($_REQUEST["login"])) {
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4">Welcome Back!</h4>
                                     </div>
-                                    <form class="user" id="login_form" method="POST" action="" novalidate>
+                                    <form class="user" id="login_form" method="POST" novalidate>
+
+                                        <?php if ($is_invalid): ?>
+
+                                            <div class="alert alert-danger alert-dismissible custom-alert top-0 fade show position-fixed mt-3 start-50 translate-middle-x"
+                                                role="alert"><em><strong>Invalid login, please verify your credentials</strong></em><button type="button" class="btn-close"
+                                                    data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                        <?php endif; ?>
 
                                         <div class="mb-3">
                                             <input class="form-control form-control-user" type="email"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address..." name="email">
+                                                placeholder="Enter Email Address..." name="email"
+                                                value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
                                         </div>
 
                                         <div class="mb-3">
