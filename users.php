@@ -278,6 +278,7 @@ if (isset($_SESSION["user_id"])) {
     </div>
     <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
     <script src="assets/bootstrap/js/bootstrap.min.js" defer></script>
+    <script src="assets/js/validation-update-user.js" defer></script>
     <script src="assets/js/validation-add-user.js" defer></script>
     <script src="assets/js/script.js" defer></script>
     <script src="assets/js/users.js" defer></script>

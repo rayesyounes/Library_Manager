@@ -1,5 +1,5 @@
-let validation_user = new JustValidate("#add_user");
-validation_user
+let validation_add_user = new JustValidate("#add_user");
+validation_add_user
     .addField("#add_first_name", [
         {
             rule: "required"
