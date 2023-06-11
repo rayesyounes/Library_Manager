@@ -91,8 +91,7 @@ if (isset($_SESSION["user_id"])) {
                                     <div class="d-sm-flex justify-content-between align-items-center my-2">
                                         <button class="btn btn-primary btn-user w-50" type="submit" name="add">add
                                             user</button>
-                                        <button id="hide_addModal_Button"
-                                            class="btn btn-secondary btn-user w-40">Cancel</button>
+                                        <a id="hide_addModal_Button" class="btn btn-secondary btn-user w-40">Cancel</a>
                                     </div>
                                 </form>
                             </div>
@@ -195,7 +194,9 @@ if (isset($_SESSION["user_id"])) {
                                         </div>
                                         <hr>
                                         <br>
-                                        <form class="user" id="update_user" method="post" action="" novalidate>
+                                        <form class="user" id="update_user" method="post"
+                                            action="update-user-process.php" novalidate>
+                                            <input type="hidden" name="id" id="id_hidden" value="<?php echo $id; ?>">
                                             <div class="row mb-3">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                                     <input class="form-control form-control-user" type="text"
@@ -239,9 +240,9 @@ if (isset($_SESSION["user_id"])) {
                                             <br>
                                             <div class="d-sm-flex justify-content-between align-items-center my-2">
                                                 <button class="btn btn-primary btn-user w-50" type="submit"
-                                                    name="add">Update</button>
-                                                <button id="hide_updateModal_Button"
-                                                    class="btn btn-secondary btn-user w-40">Cancel</button>
+                                                    name="update">Update</button>
+                                                <a id="hide_updateModal_Button"
+                                                    class="btn btn-secondary btn-user w-40">Cancel</a>
                                             </div>
                                         </form>
                                     </div>

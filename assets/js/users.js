@@ -65,6 +65,9 @@ function fetchUserData(userId) {
             document.getElementById('update_cin').value = data.Cin;
             document.getElementById('update_phone').value = data.Phone_Number;
             document.getElementById('update_email').value = data.Email;
+            // document.getElementById('update_password').value = data.Pass_key;
+
+            document.getElementById('id_hidden').value = data.ID_User;
 
             // Set the admin access checkbox
             document.getElementById('update_formCheck').checked = (data.Is_Admin === '1');
