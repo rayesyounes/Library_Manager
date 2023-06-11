@@ -56,19 +56,27 @@
     });
   }
 
-  var scrollToTop = document.querySelector('.scroll-to-top');
+  var scrollToTopButtons = document.querySelectorAll('.scroll-to-top');
 
-  if (scrollToTop) {
+  if (scrollToTopButtons.length > 0) {
+    // Hide scroll to top buttons initially
+    scrollToTopButtons.forEach(function (button) {
+      button.style.display = 'none';
+    });
 
     // Scroll to top button appear
     window.addEventListener('scroll', function () {
       var scrollDistance = window.scrollY;
 
-      //check if user is scrolling up
-      if (scrollDistance > 100) {
-        scrollToTop.style.display = 'block';
+      // Check if user is scrolling up
+      if (scrollDistance > 200) {
+        scrollToTopButtons.forEach(function (button) {
+          button.style.display = 'block';
+        });
       } else {
-        scrollToTop.style.display = 'none';
+        scrollToTopButtons.forEach(function (button) {
+          button.style.display = 'none';
+        });
       }
     });
   }

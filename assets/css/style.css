@@ -5,3 +5,13 @@
 .input-group.btn {
     z-index: -1;
 }
+
+.fa-angle-up{
+    padding: 8px 50px;
+}
+
+.scroll-to-top {
+    width: auto;
+    height: auto;
+    margin-right: 6px;
+}

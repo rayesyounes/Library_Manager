@@ -274,7 +274,7 @@ if (isset($_SESSION["user_id"])) {
             <?php include("footer.php"); ?>
 
         </div>
-        <a class="border rounded d-block scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+        <a class="text-center border rounded scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
     <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
     <script src="assets/bootstrap/js/bootstrap.min.js" defer></script>
