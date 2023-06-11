@@ -1,6 +1,6 @@
 let validation_user = new JustValidate("#add_user");
 validation_user
-    .addField("#first_name", [
+    .addField("#add_first_name", [
         {
             rule: "required"
         },
@@ -9,7 +9,7 @@ validation_user
             value: 4,
         }
     ])
-    .addField("#last_name", [
+    .addField("#add_last_name", [
         {
             rule: "required"
         },
@@ -18,7 +18,7 @@ validation_user
             value: 4,
         }
     ])
-    .addField("#cin", [
+    .addField("#add_cin", [
         {
             rule: "required"
         },
@@ -35,7 +35,7 @@ validation_user
             errorMessage: "The Cin is already exist"
         }
     ])
-    .addField("#phone", [
+    .addField("#add_phone", [
         {
             rule: "required"
         },
@@ -59,7 +59,7 @@ validation_user
             value: 10,
         }
     ])
-    .addField("#email", [
+    .addField("#add_email", [
         {
             rule: "required"
         },
@@ -79,7 +79,7 @@ validation_user
             errorMessage: "This email is already taken"
         }
     ])
-    .addField("#password", [
+    .addField("#add_password", [
         {
             rule: "required"
         },

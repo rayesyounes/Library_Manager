@@ -51,35 +51,35 @@ if (isset($_SESSION["user_id"])) {
                                 <form class="user" id="add_user" method="post" action="add-user-process.php" novalidate>
                                     <div class="row mb-3">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input class="form-control form-control-user" type="text" id="first_name"
-                                                placeholder="First Name" name="first_name">
+                                            <input class="form-control form-control-user" type="text"
+                                                id="add_first_name" placeholder="First Name" name="first_name">
                                         </div>
                                         <div class="col-sm-6">
-                                            <input class="form-control form-control-user" type="text" id="last_name"
+                                            <input class="form-control form-control-user" type="text" id="add_last_name"
                                                 placeholder="Last Name" name="last_name">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input class="form-control form-control-user" type="text" id="cin"
+                                            <input class="form-control form-control-user" type="text" id="add_cin"
                                                 placeholder="Cin" name="cin">
                                         </div>
                                         <div class="col-sm-6">
-                                            <input class="form-control form-control-user" type="text" id="phone"
+                                            <input class="form-control form-control-user" type="text" id="add_phone"
                                                 placeholder="Phone number" name="phone">
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <input class="form-control form-control-user" type="email" id="email"
+                                        <input class="form-control form-control-user" type="email" id="add_email"
                                             aria-describedby="emailHelp" placeholder="Email" name="email">
                                     </div>
                                     <div class=" mb-3">
-                                        <input class="form-control form-control-user" type="password" id="password"
+                                        <input class="form-control form-control-user" type="password" id="add_password"
                                             placeholder="Password" name="password">
                                     </div>
                                     <div class="mb-3">
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="formCheck"
+                                            <input class="form-check-input" type="checkbox" id="add_formCheck"
                                                 name="formCheck">
                                             <label class="form-check-label" for="formCheck">
                                                 <strong>Admin Access</strong>
@@ -91,7 +91,7 @@ if (isset($_SESSION["user_id"])) {
                                     <div class="d-sm-flex justify-content-between align-items-center my-2">
                                         <button class="btn btn-primary btn-user w-50" type="submit" name="add">add
                                             user</button>
-                                        <button id="hideModalButton"
+                                        <button id="hide_addModal_Button"
                                             class="btn btn-secondary btn-user w-40">Cancel</button>
                                     </div>
                                 </form>
@@ -125,7 +125,7 @@ if (isset($_SESSION["user_id"])) {
                             </div>
                             <div class="table-responsive table mt-2" id="dataTable" role="grid"
                                 aria-describedby="dataTable_info">
-                                <table class="table my-0" id="dataTable">
+                                <table class="table table-hover my-0" id="dataTable">
                                     <thead>
                                         <tr>
                                             <th>Name</th>
@@ -141,7 +141,8 @@ if (isset($_SESSION["user_id"])) {
                                         $sql = "SELECT * FROM users WHERE Is_Admin = 0";
                                         $result = $mysqli->query($sql);
                                         ?>
-                                        <?php while ($user = $result->fetch_assoc()) { ;?>
+                                        <?php while ($user = $result->fetch_assoc()) {
+                                            ; ?>
                                             <tr>
                                                 <td>
                                                     <img title="" class="rounded-circle me-2" width="30" height="30"
@@ -158,15 +159,16 @@ if (isset($_SESSION["user_id"])) {
                                                     <?php echo $user['Email']; ?>
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-secondary btn-sm d-none d-sm-inline-block"
-                                                        href="user-edit-process.php?id=<?php echo $user['ID_User']; ?>">Edit</a>
+                                                    <button id="<?php echo $user['ID_User']; ?>"
+                                                        class="btn btn-warning btn-sm d-none d-sm-inline-block w-100 updateUserButton"
+                                                        type="button">Edit</button>
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-danger btn-sm d-none d-sm-inline-block"
-                                                        href="user-delete-process.php?id=<?php echo $user['ID_User']; ?>">Delete</a>
+                                                    <a id="" class="btn btn-danger btn-sm d-none d-sm-inline-block w-100"
+                                                        href="delete-user-process.php?id=<?php echo $user['ID_User']; ?>">Delete</a>
                                                 </td>
                                             </tr>
-                                            
+
                                         <?php }
                                         mysqli_close($mysqli);
                                         ?>
@@ -182,10 +184,85 @@ if (isset($_SESSION["user_id"])) {
                                     </tfoot>
                                 </table>
                             </div>
+
+
+
+                            <div id="updateUserModal" class="modal">
+                                <div class="modal-content">
+                                    <div class="p-3">
+                                        <div class="text-center">
+                                            <h4 class="text-dark mb-4">Update User Info</h4>
+                                        </div>
+                                        <hr>
+                                        <br>
+                                        <form class="user" id="update_user" method="post" action="" novalidate>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input class="form-control form-control-user" type="text"
+                                                        id="update_first_name" placeholder="First Name"
+                                                        name="first_name">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input class="form-control form-control-user" type="text"
+                                                        id="update_last_name" placeholder="Last Name" name="last_name">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input class="form-control form-control-user" type="text"
+                                                        id="update_cin" placeholder="Cin" name="cin">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input class="form-control form-control-user" type="text"
+                                                        id="update_phone" placeholder="Phone number" name="phone">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <input class="form-control form-control-user" type="email"
+                                                    id="update_email" aria-describedby="emailHelp" placeholder="Email"
+                                                    name="email">
+                                            </div>
+                                            <div class=" mb-3">
+                                                <input class="form-control form-control-user" type="password"
+                                                    id="update_password" placeholder="Password" name="password">
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        id="update_formCheck" name="formCheck">
+                                                    <label class="form-check-label" for="formCheck">
+                                                        <strong>Admin Access</strong>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <br>
+                                            <div class="d-sm-flex justify-content-between align-items-center my-2">
+                                                <button class="btn btn-primary btn-user w-50" type="submit"
+                                                    name="add">Update</button>
+                                                <button id="hide_updateModal_Button"
+                                                    class="btn btn-secondary btn-user w-40">Cancel</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
                             <div class="row">
                                 <div class="col-md-6 align-self-center">
                                     <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">
-                                        Showing 1 to 10 of 27</p>
+                                        <?php
+                                        $mysqli = require("db.php");
+                                        $sql = "SELECT COUNT(*) AS total FROM users WHERE is_admin = 0";
+                                        $result = $mysqli->query($sql);
+                                        $row = $result->fetch_assoc();
+                                        $totalUsers = $row['total'];
+
+                                        echo "Showing 1 to " . $totalUsers . " of " . $totalUsers;
+                                        ?>
+                                    </p>
                                 </div>
                             </div>
                         </div>
