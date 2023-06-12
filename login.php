@@ -36,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Nunito.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <?php include("scroll-bar.php"); ?>
 </head>
 
 <body class="bg-gradient-primary d-flex align-items-center">

@@ -18,6 +18,7 @@ if (isset($_SESSION["user_id"])) {
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Nunito.css">
+    <?php include("scroll-bar.php"); ?>
 </head>
 
 <body id="page-top">

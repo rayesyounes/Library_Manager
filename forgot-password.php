@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Nunito.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <?php include("scroll-bar.php"); ?>
 </head>
 
 <body class="bg-gradient-primary">

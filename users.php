@@ -20,6 +20,7 @@ if (isset($_SESSION["user_id"])) {
     <link rel="stylesheet" href="assets/css/Nunito.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/users.css">
+    <?php include("scroll-bar.php"); ?>
 </head>
 
 <body id="page-top">
