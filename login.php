@@ -16,8 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             session_regenerate_id();
             $_SESSION["user_id"] = $user["ID_User"];
 
-            header("Location: index.php");
-            exit;
+            if ($user["Is_Admin"] == 1) {
+                header("Location: index.php");
+            } else {
+                header("Location: users.php");
+            }
         }
     }
 
