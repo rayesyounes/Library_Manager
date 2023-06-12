@@ -43,14 +43,6 @@ validation_update_user
             rule: "email"
         }
     ])
-    .addField("#update_password", [
-        {
-            rule: "required"
-        },
-        {
-            rule: "password"
-        }
-    ])
     .onSuccess((event) => {
         document.getElementById("update_user").submit();
     });

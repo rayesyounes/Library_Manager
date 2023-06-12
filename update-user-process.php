@@ -23,30 +23,17 @@ if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
     die("Valid Email is required");
 }
 
-if (strlen($_POST["password"]) < 8) {
-    die("Password must be at least 8 characters");
-}
-
-if (!preg_match("/[a-z]/i", $_POST["password"])) {
-    die("Password must contain at least one letter");
-}
-
-if (!preg_match("/[0-9]/", $_POST["password"])) {
-    die("Password must contain at least one number");
-}
-
 $id = $_POST['id'];
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
 $cin = $_POST['cin'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
-$password = $_POST['password'];
 $is_admin = isset($_POST['formCheck']) ? 1 : 0;
 
 $mysqli = require("db.php");
 
-$sql = "UPDATE users SET Cin = ?, First_name = ?, Last_name = ?, Email = ?, Phone_Number = ?, Pass_key = ?, Is_Admin = ? WHERE ID_User = ?";
+$sql = "UPDATE users SET Cin = ?, First_name = ?, Last_name = ?, Email = ?, Phone_Number = ?, Is_Admin = ? WHERE ID_User = ?";
 
 $stmt = $mysqli->stmt_init();
 
@@ -55,13 +42,12 @@ if (!$stmt->prepare($sql)) {
 }
 
 $stmt->bind_param(
-    "ssssssii",
+    "sssssii",
     $cin,
     $first_name,
     $last_name,
     $email,
     $phone,
-    $password_hash,
     $is_admin,
     $id
 );

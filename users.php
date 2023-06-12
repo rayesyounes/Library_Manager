@@ -223,10 +223,7 @@ if (isset($_SESSION["user_id"])) {
                                                     id="update_email" aria-describedby="emailHelp" placeholder="Email"
                                                     name="email">
                                             </div>
-                                            <div class=" mb-3">
-                                                <input class="form-control form-control-user" type="password"
-                                                    id="update_password" placeholder="Password" name="password">
-                                            </div>
+                                            <br>
                                             <div class="mb-3">
                                                 <div class="form-check form-switch">
                                                     <input class="form-check-input" type="checkbox"
