@@ -48,7 +48,8 @@ if (isset($_SESSION["user_id"])) {
                                 </div>
                                 <hr>
                                 <br>
-                                <form class="book" id="add_book" method="post"  action="add-book-process.php" enctype="multipart/form-data" novalidate>
+                                <form class="book" id="add_book" method="post" action="add-book-process.php"
+                                    enctype="multipart/form-data" novalidate>
                                     <div class="row mb-3">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <input class="form-control form-control-user" type="text" id="add_title"
@@ -170,6 +171,62 @@ if (isset($_SESSION["user_id"])) {
                                     </tfoot>
                                 </table>
                             </div>
+
+
+                            <div id="updateBookModal" class="modal">
+                                <div class="modal-content">
+                                    <div class="p-3">
+                                        <div class="text-center">
+                                            <h4 class="text-dark mb-4">update Book</h4>
+                                        </div>
+                                        <hr>
+                                        <br>
+                                        <form class="book row" id="update_book" method="post"
+                                            action="update-book-process.php" enctype="multipart/form-data" novalidate>
+                                            <input type="hidden" name="id" id="id_hidden" value="<?php echo $id; ?>">
+                                            <div class="col-4" style="width: 250px; height: 290px;">
+                                                <img title="" id="levery" style="width: 100%; height: 100%;" class="book-image" style="" src="">
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                                        <input class="form-control form-control-user" type="text"
+                                                            id="update_title" placeholder="Title" name="title">
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <input class="form-control form-control-user" type="text"
+                                                            id="update_author" placeholder="Author" name="author">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                                        <input class="form-control form-control-user" type="text"
+                                                            id="update_isbn" placeholder="ISBN" name="isbn">
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <input class="form-control form-control-user" type="text"
+                                                            id="update_quantity" placeholder="Quantity" name="quantity">
+                                                    </div>
+                                                </div>
+                                                <div class=" mb-3">
+                                                    <input class="form-control form-control-user" type="file"
+                                                        id="update_picture" placeholder="Livery" name="picture">
+                                                </div>
+                                                <br>
+                                                <hr>
+                                                <br>
+                                                <div class="d-sm-flex justify-content-between align-items-center my-2">
+                                                    <button class="btn btn-primary btn-user w-50" type="submit"
+                                                        name="update_book">Update</button>
+                                                    <a id="hide_updateModal_Button"
+                                                        class="btn btn-secondary btn-user w-40">Cancel</a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="row">
                                 <div class="col-md-6 align-self-center">
                                     <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">
