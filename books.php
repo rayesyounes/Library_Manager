@@ -48,7 +48,7 @@ if (isset($_SESSION["user_id"])) {
                                 </div>
                                 <hr>
                                 <br>
-                                <form class="book" id="add_book" method="post"  action="add-book-process.php" novalidate>
+                                <form class="book" id="add_book" method="post"  action="add-book-process.php" enctype="multipart/form-data" novalidate>
                                     <div class="row mb-3">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <input class="form-control form-control-user" type="text" id="add_title"
@@ -132,7 +132,7 @@ if (isset($_SESSION["user_id"])) {
                                             <tr>
                                                 <td>
                                                     <img title="" class="rounded-circle me-2" width="30" height="30"
-                                                        src="assets/img/books/<?php echo $book['Picture']; ?>">
+                                                        src="uploads/<?php echo $book['Picture']; ?>">
                                                     <?php echo $book['Title']; ?>
                                                 </td>
                                                 <td>

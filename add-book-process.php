@@ -4,7 +4,7 @@ if (empty($_POST["title"])) {
 }
 
 if (empty($_POST["author"])) {
-    die("author is required");
+    die("Author is required");
 }
 
 if (empty($_POST["isbn"])) {
@@ -15,7 +15,7 @@ if (empty($_POST["quantity"])) {
     die("Quantity is required");
 }
 
-if (empty($_POST["picture"])) {
+if (!isset($_FILES["picture"]) || $_FILES["picture"]["error"] !== UPLOAD_ERR_OK) {
     die("Picture is required");
 }
 
@@ -29,13 +29,21 @@ if (!$stmt->prepare($sql)) {
     die("SQL error: " . $mysqli->error);
 }
 
+$pictureName = $_FILES["picture"]["name"];
+$pictureTmpPath = $_FILES["picture"]["tmp_name"];
+$pictureDestination = "uploads/" . $pictureName;
+
+if (!move_uploaded_file($pictureTmpPath, $pictureDestination)) {
+    die("Failed to move uploaded picture");
+}
+
 $stmt->bind_param(
     "sssss",
     $_POST["title"],
     $_POST["author"],
     $_POST["isbn"],
     $_POST["quantity"],
-    $_POST["picture"]
+    $pictureDestination
 );
 
 if ($stmt->execute()) {
