@@ -36,8 +36,7 @@ if (isset($_SESSION["user_id"])) {
 
                     <div class="d-sm-flex justify-content-between align-items-center mb-2">
                         <h3 class="text-dark mb-4">Users</h3>
-                        <a id="addUserButton" class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button"
-                            href="#">&nbsp;Add User</a>
+                        <a id="addUserButton" class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#">&nbsp;Add User</a>
                     </div>
 
                     <div id="addUserModal" class="modal">

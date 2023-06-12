@@ -19,6 +19,7 @@ if (isset($_SESSION["user_id"])) {
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Nunito.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/books.css">
 </head>
 
 <body id="page-top">
@@ -32,11 +33,59 @@ if (isset($_SESSION["user_id"])) {
                 <?php include("navbar.php"); ?>
 
                 <div class="container-fluid">
+
                     <div class="d-sm-flex justify-content-between align-items-center mb-2">
                         <h3 class="text-dark mb-4">Books</h3>
-                        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#">&nbsp;Add
-                            Book</a>
+                        <a id="addBookButton" class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button"
+                            href="#">&nbsp;Add Book</a>
                     </div>
+
+                    <div id="addBookModal" class="modal">
+                        <div class="modal-content">
+                            <div class="p-3">
+                                <div class="text-center">
+                                    <h4 class="text-dark mb-4">Add Book</h4>
+                                </div>
+                                <hr>
+                                <br>
+                                <form class="book" id="add_book" method="post"  action="add-book-process.php" novalidate>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input class="form-control form-control-user" type="text" id="add_title"
+                                                placeholder="Title" name="title">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input class="form-control form-control-user" type="text" id="add_author"
+                                                placeholder="Author" name="author">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input class="form-control form-control-user" type="text" id="add_isbn"
+                                                placeholder="ISBN" name="isbn">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input class="form-control form-control-user" type="text" id="add_quantity"
+                                                placeholder="Quantity" name="quantity">
+                                        </div>
+                                    </div>
+                                    <div class=" mb-3">
+                                        <input class="form-control form-control-user" type="file" id="add_picture"
+                                            placeholder="Livery" name="picture">
+                                    </div>
+                                    <hr>
+                                    <br>
+                                    <div class="d-sm-flex justify-content-between align-items-center my-2">
+                                        <button class="btn btn-primary btn-user w-50" type="submit" name="add_book">Add
+                                            Book</button>
+                                        <a id="hide_addModal_Button" class="btn btn-secondary btn-user w-40">Cancel</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <div class="card shadow">
                         <div class="card-header py-3">
                             <p class="text-primary m-0 fw-bold">Book Info</p>
@@ -69,17 +118,46 @@ if (isset($_SESSION["user_id"])) {
                                             <th>Author</th>
                                             <th>ISBN</th>
                                             <th>Quantity</th>
-                                            <th>Action</th>
+                                            <th colspan="2">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Lorem</td>
-                                            <td>Lorem ipsum</td>
-                                            <td>#00001</td>
-                                            <td>10</td>
-                                            <td></td>
-                                        </tr>
+                                        <?php
+                                        $mysqli = require("db.php");
+                                        $sql = "SELECT * FROM books ";
+                                        $result = $mysqli->query($sql);
+                                        ?>
+                                        <?php while ($book = $result->fetch_assoc()) {
+                                            ; ?>
+                                            <tr>
+                                                <td>
+                                                    <img title="" class="rounded-circle me-2" width="30" height="30"
+                                                        src="assets/img/books/<?php echo $book['Picture']; ?>">
+                                                    <?php echo $book['Title']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $book['Author']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $book['ISBN']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $book['Quantity']; ?>
+                                                </td>
+                                                <td>
+                                                    <button id="<?php echo $book['ID_Book']; ?>"
+                                                        class="btn btn-warning btn-sm d-none d-sm-inline-block w-100 updateBookButton"
+                                                        type="button">Edit</button>
+                                                </td>
+                                                <td>
+                                                    <a id="" class="btn btn-danger btn-sm d-none d-sm-inline-block w-100"
+                                                        href="delete-book-process.php?id=<?php echo $book['ID_Book']; ?>">Delete</a>
+                                                </td>
+                                            </tr>
+
+                                        <?php }
+                                        mysqli_close($mysqli);
+                                        ?>
                                     </tbody>
                                     <tfoot>
                                         <tr>
@@ -87,7 +165,7 @@ if (isset($_SESSION["user_id"])) {
                                             <td><strong>Author</strong></td>
                                             <td><strong>ISBN</strong></td>
                                             <td><strong>Quantity</strong></td>
-                                            <td></td>
+                                            <td colspan="2"><strong>Actions</strong></td>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -95,7 +173,16 @@ if (isset($_SESSION["user_id"])) {
                             <div class="row">
                                 <div class="col-md-6 align-self-center">
                                     <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">
-                                        Showing 1 to 10 of 27</p>
+                                        <?php
+                                        $mysqli = require("db.php");
+                                        $sql = "SELECT COUNT(*) AS total FROM books";
+                                        $result = $mysqli->query($sql);
+                                        $row = $result->fetch_assoc();
+                                        $totalBooks = $row['total'];
+
+                                        echo "Showing 1 to " . $totalBooks . " of " . $totalBooks;
+                                        ?>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -107,6 +194,10 @@ if (isset($_SESSION["user_id"])) {
 
         </div><a class="text-center border rounded scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js" defer></script>
+    <script src="assets/js/validation-update-book.js" defer></script>
+    <script src="assets/js/validation-add-book.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/books.js" defer></script>
 </body>
