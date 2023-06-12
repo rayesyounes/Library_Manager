@@ -15,55 +15,43 @@ if (empty($_POST["quantity"])) {
     die("Quantity is required");
 }
 
-if (!isset($_FILES["picture"]) || $_FILES["picture"]["error"] !== UPLOAD_ERR_OK) {
-    die("Picture is required");
-}
-
-
-
-
-
-
-
-
-
-
 $id = $_POST['id'];
-$first_name = $_POST['first_name'];
-$last_name = $_POST['last_name'];
-$cin = $_POST['cin'];
-$phone = $_POST['phone'];
-$email = $_POST['email'];
-$password = $_POST['password'];
-$is_admin = isset($_POST['formCheck']) ? 1 : 0;
+$title = $_POST['title'];
+$author = $_POST['author'];
+$isbn = $_POST['isbn'];
+$quantity = $_POST['quantity'];
 
 $mysqli = require("db.php");
 
-$sql = "UPDATE users SET Cin = ?, First_name = ?, Last_name = ?, Email = ?, Phone_Number = ?, Pass_key = ?, Is_Admin = ? WHERE ID_User = ?";
+// Prepare the SQL statement
+if (!isset($_FILES["picture"]) || $_FILES["picture"]["error"] === UPLOAD_ERR_NO_FILE) {
+    // No new picture provided, update only other inputs
+    $sql = "UPDATE books SET Title = ?, Author = ?, ISBN = ?, Quantity = ? WHERE ID_Book = ?";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("sssii", $title, $author, $isbn, $quantity, $id);
+} else {
+    // New picture provided, update picture and other inputs
+    $picture = $_FILES["picture"]["name"];
+    $tmp_name = $_FILES["picture"]["tmp_name"];
+    $picture_path = "assets/img/books/" . $picture; // Update this path to the actual path where you want to store the pictures
 
-$stmt = $mysqli->stmt_init();
-
-if (!$stmt->prepare($sql)) {
-    die("SQL error: " . $mysqli->error);
+    // Move the uploaded picture to the desired location
+    if (move_uploaded_file($tmp_name, $picture_path)) {
+        // Update picture path and other inputs
+        $sql = "UPDATE books SET Title = ?, Author = ?, ISBN = ?, Quantity = ?, Picture = ? WHERE ID_Book = ?";
+        $stmt = $mysqli->prepare($sql);
+        $stmt->bind_param("sssisi", $title, $author, $isbn, $quantity, $picture_path, $id);
+    } else {
+        die("Failed to move uploaded picture.");
+    }
 }
 
-$stmt->bind_param(
-    "ssssssii",
-    $cin,
-    $first_name,
-    $last_name,
-    $email,
-    $phone,
-    $password_hash,
-    $is_admin,
-    $id
-);
-
+// Execute the statement
 if ($stmt->execute()) {
     echo "SUCCESS";
-    header("Location: users.php");
+    header("Location: books.php"); // Redirect to a page after successful update
     exit;
 } else {
-    die($mysqli->error . " " . $mysqli->errno);
+    die($stmt->error);
 }
 ?>
