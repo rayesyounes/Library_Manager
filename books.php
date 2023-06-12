@@ -120,7 +120,7 @@ if (isset($_SESSION["user_id"])) {
                                             <th>Author</th>
                                             <th>ISBN</th>
                                             <th>Quantity</th>
-                                            <th colspan="2">Actions</th>
+                                            <th colspan="2" class="text-center">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -133,25 +133,25 @@ if (isset($_SESSION["user_id"])) {
                                             ; ?>
                                             <tr>
                                                 <td>
-                                                    <img title="" class="rounded-circle me-2" width="30" height="30"
+                                                    <img title="" class="rounded me-2" width="80" height="120"
                                                         src="<?php echo $book['Picture']; ?>">
                                                     <?php echo $book['Title']; ?>
                                                 </td>
-                                                <td>
+                                                <td class="align-middle">
                                                     <?php echo $book['Author']; ?>
                                                 </td>
-                                                <td>
+                                                <td class="align-middle">
                                                     <?php echo $book['ISBN']; ?>
                                                 </td>
-                                                <td>
+                                                <td class="align-middle">
                                                     <?php echo $book['Quantity']; ?>
                                                 </td>
-                                                <td>
+                                                <td class="align-middle">
                                                     <button id="<?php echo $book['ID_Book']; ?>"
                                                         class="btn btn-warning btn-sm d-none d-sm-inline-block w-100 updateBookButton"
                                                         type="button">Edit</button>
                                                 </td>
-                                                <td>
+                                                <td class="align-middle">
                                                     <a id="" class="btn btn-danger btn-sm d-none d-sm-inline-block w-100"
                                                         href="delete-book-process.php?id=<?php echo $book['ID_Book']; ?>">Delete</a>
                                                 </td>
@@ -167,7 +167,7 @@ if (isset($_SESSION["user_id"])) {
                                             <td><strong>Author</strong></td>
                                             <td><strong>ISBN</strong></td>
                                             <td><strong>Quantity</strong></td>
-                                            <td colspan="2"><strong>Actions</strong></td>
+                                            <td colspan="2" class="text-center"><strong>Actions</strong></td>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -185,7 +185,7 @@ if (isset($_SESSION["user_id"])) {
                                         <form class="book row" id="update_book" method="post"
                                             action="update-book-process.php" enctype="multipart/form-data" novalidate>
                                             <input type="hidden" name="id" id="id_hidden" value="<?php echo $id; ?>">
-                                            <div class="col-4" style="width: 250px; height: 290px;">
+                                            <div class="col-4" style="width: 250px; height: 320px;">
                                                 <img title="" id="levery" style="width: 100%; height: 100%;"
                                                     class="book-image" style="" src="">
                                             </div>
@@ -214,6 +214,7 @@ if (isset($_SESSION["user_id"])) {
                                                     <input class="form-control form-control-user" type="file"
                                                         id="update_picture" placeholder="Livery" name="picture">
                                                 </div>
+                                                <br>
                                                 <br>
                                                 <hr>
                                                 <br>
