@@ -19,6 +19,7 @@ if (isset($_SESSION["user_id"])) {
         <title>Profile - RayesReads</title>
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+        <link rel="stylesheet" href="assets/css/profile.css">
         <link rel="stylesheet" href="assets/css/Nunito.css">
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
@@ -38,54 +39,53 @@ if (isset($_SESSION["user_id"])) {
                         <div class="row mb-3">
                             <div class="col-lg-4 col-xxl-4 offset-xxl-0">
                                 <div class="card mb-3">
-                                    <div class="card-body text-center shadow"><img title="#"
-                                            class="rounded-circle mb-3 mt-4" src="<?php echo htmlspecialchars($user["Avatar"]); ?>"
-                                            width="160" height="160">
-                                        <div class="mb-3"><button class="btn btn-primary btn-sm" type="button">Change
-                                                Photo</button></div>
+                                    <div class="card-body text-center shadow"><img title="<?php echo htmlspecialchars($user["First_Name"] . " " . $user["Last_Name"]); ?>"
+                                                class="rounded-circle mb-3 mt-4" src="<?php echo htmlspecialchars($user["Avatar"]); ?>" width="160"
+                                                height="160">
+                                            <div class="mb-3"><button class="btn btn-primary btn-sm" type="button">Change Photo</button></div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="card shadow mb-5">
-                                    <div class="card-header py-3">
-                                        <p class="text-primary m-0 fw-bold">Forum Settings</p>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <form>
-                                                    <div class="mb-3"><label class="form-label"
-                                                            for="signature"><strong>Signature</strong><br></label><textarea
-                                                            class="form-control" id="signature" rows="4"
-                                                            name="signature"></textarea></div>
-                                                    <div class="mb-3">
-                                                        <div class="form-check form-switch"><input class="form-check-input"
-                                                                type="checkbox" id="formCheck-1"><label
-                                                                class="form-check-label" for="formCheck-1"><strong>Notify me
-                                                                    about new replies</strong></label></div>
-                                                    </div>
-                                                    <div class="mb-3"><button class="btn btn-primary btn-sm"
-                                                            type="submit">Save Settings</button></div>
-                                                </form>
+                                    <div class="card shadow mb-5">
+                                        <div class="card-header py-3">
+                                            <p class="text-primary m-0 fw-bold">Forum Settings</p>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <form>
+                                                        <div class="mb-3"><label class="form-label"
+                                                                for="signature"><strong>Signature</strong><br></label><textarea
+                                                                class="form-control" id="signature" rows="4"
+                                                                name="signature"></textarea></div>
+                                                        <div class="mb-3">
+                                                            <div class="form-check form-switch"><input class="form-check-input"
+                                                                    type="checkbox" id="formCheck-1"><label
+                                                                    class="form-check-label" for="formCheck-1"><strong>Notify me
+                                                                        about new replies</strong></label></div>
+                                                        </div>
+                                                        <div class="mb-3"><button class="btn btn-primary btn-sm"
+                                                                type="submit">Save Settings</button></div>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card shadow mb-3">
-                                            <div class="card-header py-3">
-                                                <p class="text-primary m-0 fw-bold">User Settings</p>
-                                            </div>
-                                            <div class="card-body">
-                                                <form>
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <div class="mb-3"><label class="form-label"
-                                                                    for="username"><strong>Username</strong></label><input
-                                                                    class="form-control" type="text" id="username"
-                                                                    placeholder="<?php echo htmlspecialchars($user["Last_Name"] . " " . $user["First_Name"]); ?>"
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="card shadow mb-3">
+                                                <div class="card-header py-3">
+                                                    <p class="text-primary m-0 fw-bold">User Settings</p>
+                                                </div>
+                                                <div class="card-body">
+                                                    <form>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="mb-3"><label class="form-label"
+                                                                        for="username"><strong>Username</strong></label><input
+                                                                        class="form-control" type="text" id="username"
+                                                                        placeholder="<?php echo htmlspecialchars($user["Last_Name"] . " " . $user["First_Name"]); ?>"
                                                                     name="username"></div>
                                                         </div>
                                                         <div class="col">
@@ -152,13 +152,14 @@ if (isset($_SESSION["user_id"])) {
                             </div>
                         </div>
                     </div>
+
+                    <?php include("footer.php"); ?>
+
                 </div>
-
-                <?php include("footer.php"); ?>
-
             </div><a class="text-center border rounded scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
         </div>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/script.js"></script>
+        <script src="assets/js/profile.js" defer></script>
+        <script src="assets/js/script.js" defer></script>
     </body>
 <?php endif; ?>

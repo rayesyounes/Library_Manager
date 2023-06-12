@@ -63,8 +63,8 @@ if (isset($user) && !isset($_SESSION['welcome_message'])) {
                                     <p>alert</p>
                                 </div>
                             </a>
-                            
-                            
+
+
                             <a class="dropdown-item text-center small text-gray-500" href="#">Show All
                                 Alerts</a>
                         </div>
@@ -101,7 +101,8 @@ if (isset($user) && !isset($_SESSION['welcome_message'])) {
                 <li class="nav-item dropdown no-arrow">
                     <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false"
                             data-bs-toggle="dropdown" href="#"><span
-                                class="d-none d-lg-inline me-2 text-gray-600 small"><?php echo htmlspecialchars($user["Last_Name"] . " " . $user["First_Name"]); ?></span><img title="#"
+                                class="d-none d-lg-inline me-2 text-gray-600 small"><?php echo htmlspecialchars($user["Last_Name"] . " " . $user["First_Name"]); ?></span><img
+                                title="<?php echo htmlspecialchars($user["Last_Name"] . " " . $user["First_Name"]); ?>"
                                 class="border rounded-circle img-profile" src="assets/img/avatars/stockholm.jpg"></a>
                         <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in"><a class="dropdown-item"
                                 href="profile.php"><i
