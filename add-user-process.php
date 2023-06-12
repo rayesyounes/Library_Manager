@@ -41,7 +41,7 @@ $isAdmin = isset($_POST["formCheck"]) ? 1 : 0;
 
 $mysqli = require("db.php");
 
-$sql = "INSERT INTO users (Cin, First_name, Last_name, Email, Phone_Number, Pass_key, Is_Admin) VALUES (?, ?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO users (Cin, First_name, Last_name, Email, Phone_Number, Pass_key, Is_Admin, Avatar) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 $stmt = $mysqli->stmt_init();
 
@@ -50,14 +50,15 @@ if (!$stmt->prepare($sql)) {
 }
 
 $stmt->bind_param(
-    "ssssssi",
+    "ssssssis",
     $_POST["cin"],
     $_POST["first_name"],
     $_POST["last_name"],
     $_POST["email"],
     $_POST["phone"],
     $password_hash,
-    $isAdmin
+    $isAdmin,
+    $_POST["avatar"]
 );
 
 if ($stmt->execute()) {

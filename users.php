@@ -49,6 +49,7 @@ if (isset($_SESSION["user_id"])) {
                                 <hr>
                                 <br>
                                 <form class="user" id="add_user" method="post" action="add-user-process.php" novalidate>
+                                    <input type="hidden" name="avatar" value="assets/img/avatars/profile-default.png">
                                     <div class="row mb-3">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <input class="form-control form-control-user" type="text"
@@ -145,7 +146,7 @@ if (isset($_SESSION["user_id"])) {
                                             <tr>
                                                 <td>
                                                     <img title="" class="rounded-circle me-2" width="30" height="30"
-                                                        src="assets/img/avatars/stockholm.jpg">
+                                                        src="<?php echo $user['Avatar']; ?>">
                                                     <?php echo $user['First_Name'] . ' ' . $user['Last_Name']; ?>
                                                 </td>
                                                 <td>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2023 at 09:18 PM
+-- Generation Time: Jun 12, 2023 at 07:59 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -36,6 +36,13 @@ CREATE TABLE `books` (
   `Picture` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `books`
+--
+
+INSERT INTO `books` (`ID_Book`, `Title`, `Author`, `ISBN`, `Quantity`, `Picture`) VALUES
+(20, 'Emotional intelligence ', 'Robert Julmane', 'AZ34532009', 10, 'assets/img/books/pexels-mark-cruzat-3494806.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -65,15 +72,18 @@ CREATE TABLE `users` (
   `Email` varchar(255) NOT NULL,
   `Phone_Number` varchar(255) NOT NULL,
   `Pass_key` varchar(255) NOT NULL,
-  `Is_Admin` tinyint(1) NOT NULL
+  `Is_Admin` tinyint(1) NOT NULL,
+  `Avatar` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`ID_User`, `Cin`, `First_Name`, `Last_Name`, `Email`, `Phone_Number`, `Pass_key`, `Is_Admin`) VALUES
-(1, 'L649596', 'Younes', 'Rayes', 'rayesyounes88@gmail.com', '0642599866', '$2y$10$Z0c6CkVEMMI7yH4Y7cuRcOFwCd99VnQrIRWkj1J4vVPI67f0m64Hm', 1);
+INSERT INTO `users` (`ID_User`, `Cin`, `First_Name`, `Last_Name`, `Email`, `Phone_Number`, `Pass_key`, `Is_Admin`, `Avatar`) VALUES
+(1, 'L649596', 'Younes', 'Rayes', 'rayesyounes88@gmail.com', '0642599866', '$2y$10$Z0c6CkVEMMI7yH4Y7cuRcOFwCd99VnQrIRWkj1J4vVPI67f0m64Hm', 1, ''),
+(71, 'L641038', 'Hassan', 'Ajoulan', 'hassanajoulan@mail.com', '0642519826', '$2y$10$M5m0RJULraamDaaofRekEeMf.goKgH/PYYwhbWtQ0xxGBKuZkW7iS', 0, 'assets/img/avatars/profile-default.png'),
+(72, 'L6495163', 'Amin', 'Aamri', 'aminaamri@mail.com', '0642129876', '$2y$10$pXMmybnq7VB.B7GxgRlAFOpeE9AGVj7Ttdspuu1JHZqQAOZHpWY5K', 0, 'assets/img/avatars/profile-default.png');
 
 --
 -- Indexes for dumped tables
@@ -110,7 +120,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `ID_Book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_Book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `emprunts`
@@ -122,7 +132,7 @@ ALTER TABLE `emprunts`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID_User` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `ID_User` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- Constraints for dumped tables

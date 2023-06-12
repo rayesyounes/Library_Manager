@@ -25,7 +25,7 @@
                             </div>
                             <form action="register-process.php" class="user" id="register_form" method="post"
                                 novalidate>
-
+                                <input type="hidden" name="avatar" value="assets/img/avatars/profile-default.png">
                                 <div class="row mb-3">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
 
