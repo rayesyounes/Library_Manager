@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Login - RAYESTECH</title>
+    <title>Login - RayesReads</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Nunito.css">
@@ -57,20 +57,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <?php if ($is_invalid): ?>
 
                                             <div class="alert alert-danger alert-dismissible custom-alert top-0 fade show position-fixed mt-3 start-50 translate-middle-x"
-                                                role="alert"><em><strong>Invalid login, please verify your credentials</strong></em><button type="button" class="btn-close"
+                                                role="alert"><em><strong>Invalid login, please verify your
+                                                        credentials</strong></em><button type="button" class="btn-close"
                                                     data-bs-dismiss="alert" aria-label="Close"></button></div>
                                         <?php endif; ?>
 
                                         <div class="mb-3">
-                                            <input class="form-control form-control-user" type="email"
-                                                id="email" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address..." name="email"
-                                                value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
+                                            <input class="form-control form-control-user" type="email" id="email"
+                                                aria-describedby="emailHelp" placeholder="Enter Email Address..."
+                                                name="email" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
                                         </div>
 
                                         <div class="mb-3">
-                                            <input class="form-control form-control-user" type="password"
-                                                id="Password" placeholder="Password" name="password">
+                                            <input class="form-control form-control-user" type="password" id="Password"
+                                                placeholder="Password" name="password">
                                         </div>
 
 

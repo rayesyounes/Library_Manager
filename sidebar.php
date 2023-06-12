@@ -2,7 +2,7 @@
     <div class="container-fluid d-flex flex-column p-0"><a
             class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
             <div class="sidebar-brand-icon"><i class="fas fa-bars"></i></div>
-            <div class="sidebar-brand-text mx-3"><span>RAYESTECH</span></div>
+            <div class="sidebar-brand-text mx-3"><span>Rayes Reads</span></div>
         </a>
         <hr class="sidebar-divider my-0">
         <ul class="navbar-nav text-light" id="accordionSidebar">

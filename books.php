@@ -14,7 +14,7 @@ if (isset($_SESSION["user_id"])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Books - RAYESTECH</title>
+    <title>Books - RayesReads</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Nunito.css">
@@ -74,6 +74,7 @@ if (isset($_SESSION["user_id"])) {
                                         <input class="form-control form-control-user" type="file" id="add_picture"
                                             placeholder="Livery" name="picture">
                                     </div>
+                                    <br>
                                     <hr>
                                     <br>
                                     <div class="d-sm-flex justify-content-between align-items-center my-2">
@@ -185,7 +186,8 @@ if (isset($_SESSION["user_id"])) {
                                             action="update-book-process.php" enctype="multipart/form-data" novalidate>
                                             <input type="hidden" name="id" id="id_hidden" value="<?php echo $id; ?>">
                                             <div class="col-4" style="width: 250px; height: 290px;">
-                                                <img title="" id="levery" style="width: 100%; height: 100%;" class="book-image" style="" src="">
+                                                <img title="" id="levery" style="width: 100%; height: 100%;"
+                                                    class="book-image" style="" src="">
                                             </div>
                                             <div class="col-8">
                                                 <div class="row mb-3">
