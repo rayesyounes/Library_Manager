@@ -132,7 +132,7 @@ if (isset($_SESSION["user_id"])) {
                                             <tr>
                                                 <td>
                                                     <img title="" class="rounded-circle me-2" width="30" height="30"
-                                                        src="uploads/<?php echo $book['Picture']; ?>">
+                                                        src="assets/img/books/<?php echo $book['Picture']; ?>">
                                                     <?php echo $book['Title']; ?>
                                                 </td>
                                                 <td>

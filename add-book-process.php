@@ -31,7 +31,7 @@ if (!$stmt->prepare($sql)) {
 
 $pictureName = $_FILES["picture"]["name"];
 $pictureTmpPath = $_FILES["picture"]["tmp_name"];
-$pictureDestination = "uploads/" . $pictureName;
+$pictureDestination = "assets/img/books/" . $pictureName;
 
 if (!move_uploaded_file($pictureTmpPath, $pictureDestination)) {
     die("Failed to move uploaded picture");
