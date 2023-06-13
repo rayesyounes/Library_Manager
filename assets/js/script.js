@@ -1,5 +1,5 @@
 (function () {
-  "use strict"; // Start of use strict
+  "use strict";
 
   var sidebar = document.querySelector('.sidebar');
   var sidebarToggles = document.querySelectorAll('#sidebarToggle, #sidebarToggleTop');
@@ -83,4 +83,18 @@
 
 })();
 
-// End of use strict
+// add active value to the nav class
+document.addEventListener("DOMContentLoaded", function () {
+  var navItems = document.querySelectorAll("#accordionSidebar .nav-link");
+
+  // Get the current page URL
+  var currentUrl = window.location.href;
+
+  for (var i = 0; i < navItems.length; i++) {
+    var itemUrl = navItems[i].getAttribute("href");
+
+    if (currentUrl.indexOf(itemUrl) !== -1) {
+      navItems[i].classList.add("active");
+    }
+  }
+});
