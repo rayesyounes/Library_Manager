@@ -21,7 +21,7 @@
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-flex">
                                 <div class="flex-grow-1 bg-password-image"
-                                    style="background-image: url(assets/img/avatars/pexels-olena-bohovyk-3646172.jpg);">
+                                    style="background-image: url(assets/img/visual/register.jpg);">
                                 </div>
                             </div>
                             <div class="col-lg-6">

@@ -71,20 +71,22 @@ function fetchBookData(bookId) {
 }
 
 document.getElementById("search_bookInput").addEventListener("input", searchBooks);
-function searchBooks() {
-    // Get the search input value
-    var searchValue = document.getElementById("search_bookInput").value.toLowerCase();
 
-    // Get all the table rows
+function searchBooks() {
+
+    var searchValue = document.getElementById("search_bookInput").value.toLowerCase();
     var rows = document.querySelectorAll("table tbody tr");
 
-    // Loop through the rows and hide/show them based on search value
     rows.forEach(function (row) {
-        var name = row.querySelector("td:first-child").textContent.toLowerCase();
-        if (name.includes(searchValue)) {
+        var title = row.querySelector("td:nth-child(1)").textContent.toLowerCase();
+        var author = row.querySelector("td:nth-child(2)").textContent.toLowerCase();
+        var isbn = row.querySelector("td:nth-child(3)").textContent.toLowerCase();
+
+        if (title.includes(searchValue) || author.includes(searchValue) || isbn.includes(searchValue)) {
             row.style.display = "";
         } else {
             row.style.display = "none";
         }
     });
 }
+

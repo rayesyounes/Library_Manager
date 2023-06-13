@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if ($user["Is_Admin"] == 1) {
                 header("Location: index.php");
             } else {
-                header("Location: profile.php");
+                header("Location: shelf.php");
             }
         }
     }
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-flex">
                                 <div class="flex-grow-1 bg-login-image"
-                                    style="background-image: url(&quot;assets/img/avatars/pexels-olena-bohovyk-3646172.jpg&quot;);">
+                                    style="background-image: url(assets/img/visual/login.jpg);">
                                 </div>
                             </div>
                             <div class="col-lg-6">
