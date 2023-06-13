@@ -11,20 +11,25 @@
                     <a class="nav-link" href="index.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
                 </li>
             <?php endif; ?>
-            
+
             <li class="nav-item">
                 <a class="nav-link" href="profile.php"><i class="fas fa-user"></i><span>Profile</span></a>
             </li>
 
             <?php if ($user["Is_Admin"] == 1): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="users.php"><i class="fas fa-table"></i><span>Users</span></a>
+                    <a class="nav-link" href="users.php"><i class="fas fa-users"></i><span>Users</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="books.php"><i class="fas fa-table"></i><span>Books</span></a>
+                    <a class="nav-link" href="books.php"><i class="fas fa-book"></i><span>Books</span></a>
                 </li>
+            <?php endif; ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="emprunts.php"><i class="fas fa-table"></i><span>Emprunts</span></a>
+                    <a class="nav-link" href="shelf.php"><i class="fas fa-book"></i><span>Shelf</span></a>
+                </li>
+            <?php if ($user["Is_Admin"] == 1): ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="Borrowers.php"><i class="fas fa-table"></i><span>Borrowers</span></a>
                 </li>
             <?php endif; ?>
 

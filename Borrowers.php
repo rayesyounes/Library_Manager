@@ -14,7 +14,7 @@ if (isset($_SESSION["user_id"])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Blank Page - RayesReads</title>
+    <title>Borrowers - RayesReads</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Nunito.css">
@@ -33,13 +33,13 @@ if (isset($_SESSION["user_id"])) {
 
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-2">
-                        <h3 class="text-dark mb-4">Emprunts</h3>
+                        <h3 class="text-dark mb-4">Borrowers</h3>
                         <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i
                                 class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a>
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold">Emprunts Info</p>
+                            <p class="text-primary m-0 fw-bold">Borrowers Info</p>
                         </div>
                         <div class="card-body">
                             <div class="row">

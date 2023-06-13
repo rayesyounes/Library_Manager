@@ -21,3 +21,26 @@
     top: 0;
     overflow-y: auto;
 }
+
+.scale-on-hover {
+    transition: transform 0.3s ease;
+    -webkit-transition: transform 0.3s ease;
+    -moz-transition: transform 0.3s ease;
+    -ms-transition: transform 0.3s ease;
+    -o-transition: transform 0.3s ease;
+}
+
+.scale-on-hover:hover {
+    filter: brightness(1);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    -o-transform: scale(1.02);
+}
+
+.card-img-top {
+    filter: brightness(0.6);
+    width: 170px;
+    height: 250px;
+}
