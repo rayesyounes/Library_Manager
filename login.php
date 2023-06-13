@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if ($user["Is_Admin"] == 1) {
                 header("Location: index.php");
             } else {
-                header("Location: users.php");
+                header("Location: profile.php");
             }
         }
     }

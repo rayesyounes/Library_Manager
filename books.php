@@ -179,7 +179,7 @@ if (isset($_SESSION["user_id"])) {
                                 <div class="modal-content">
                                     <div class="p-3">
                                         <div class="text-center">
-                                            <h4 class="text-dark mb-4">update Book</h4>
+                                            <h4 class="text-dark mb-4">Update Book</h4>
                                         </div>
                                         <hr>
                                         <br>
