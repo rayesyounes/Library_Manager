@@ -15,3 +15,9 @@
     height: auto;
     margin-right: 6px;
 }
+
+.sidebar div {
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+}
