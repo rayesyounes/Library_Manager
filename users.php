@@ -121,7 +121,7 @@ if (isset($_SESSION["user_id"])) {
                                 <div class="col-md-6">
                                     <div class="text-md-end dataTables_filter" id="dataTable_filter"><label
                                             class="form-label"><input type="search" class="form-control form-control-sm"
-                                                aria-controls="dataTable" placeholder="Search"></label></div>
+                                                aria-controls="dataTable" placeholder="Search" id="search_userInput"></label></div>
                                 </div>
                             </div>
                             <div class="table-responsive table mt-2" id="dataTable" role="grid"
@@ -142,8 +142,7 @@ if (isset($_SESSION["user_id"])) {
                                         $sql = "SELECT * FROM users WHERE Is_Admin = 0";
                                         $result = $mysqli->query($sql);
                                         ?>
-                                        <?php while ($user = $result->fetch_assoc()) {
-                                            ; ?>
+                                        <?php while ($user = $result->fetch_assoc()) {; ?>
                                             <tr>
                                                 <td>
                                                     <img title="" class="rounded-circle me-2" width="30" height="30"

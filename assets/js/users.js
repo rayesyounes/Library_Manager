@@ -77,3 +77,22 @@ function fetchUserData(userId) {
         });
 }
 
+document.getElementById("search_userInput").addEventListener("input", searchUsers);
+function searchUsers() {
+    // Get the search input value
+    var searchValue = document.getElementById("search_userInput").value.toLowerCase();
+
+    // Get all the table rows
+    var rows = document.querySelectorAll("table tbody tr");
+
+    // Loop through the rows and hide/show them based on search value
+    rows.forEach(function (row) {
+        var name = row.querySelector("td:first-child").textContent.toLowerCase();
+        if (name.includes(searchValue)) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    });
+}
+
