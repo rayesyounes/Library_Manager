@@ -47,13 +47,12 @@ if (isset($_SESSION["user_id"])) {
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div class="text-uppercase text-primary fw-bold text-xs mb-1"
-                                                style="font-size: 16px;"><span>TOTAL
-                                                    BOOKS</span></div>
+                                                style="font-size: 16px;"><span>TOTAL BOOKS</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span
                                                     style="color: var(--bs-black);font-size: 20px;font-weight: bold;">40</span>
                                             </div>
                                         </div>
-                                        <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
+                                        <div class="col-auto"><i class="fas fa-book fa-2x text-gray-300"></i></div>
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +70,7 @@ if (isset($_SESSION["user_id"])) {
                                                     style="color: var(--bs-black);font-size: 20px;font-weight: bold;">21</span>
                                             </div>
                                         </div>
-                                        <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -83,13 +82,12 @@ if (isset($_SESSION["user_id"])) {
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div class="text-uppercase text-info fw-bold text-xs mb-1"
-                                                style="font-size: 16px;"><span>ISSUED
-                                                    BOOKS</span></div>
+                                                style="font-size: 16px;"><span>BORROWED BOOKS:</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span
                                                     style="color: var(--bs-black);font-size: 20px;font-weight: bold;">05</span>
                                             </div>
                                         </div>
-                                        <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        <div class="col-auto"><i class="fas fa-book-reader fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -101,14 +99,13 @@ if (isset($_SESSION["user_id"])) {
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div class="text-uppercase text-warning fw-bold text-xs mb-1"
-                                                style="font-size: 16px;"><span>RETURNED
-                                                    BOOKS</span></div>
+                                                style="font-size: 16px;"><span>RETURNED BOOKS</span></div>
                                             <div class="text-dark fw-bold h5 mb-0"><span
                                                     style="color: var(--bs-black);font-size: 20px;font-weight: bold;">18</span>
                                             </div>
                                             <div class="text-dark fw-bold h5 mb-0"></div>
                                         </div>
-                                        <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
+                                        <div class="col-auto"><i class="fas fa-undo fa-2x text-gray-300"></i></div>
                                     </div>
                                 </div>
                             </div>

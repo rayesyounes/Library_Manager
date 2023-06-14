@@ -34,8 +34,7 @@ if (isset($_SESSION["user_id"])) {
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-2">
                         <h3 class="text-dark mb-4">Borrowers</h3>
-                        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i
-                                class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a>
+                        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#">Add Borrower</a>
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
@@ -67,8 +66,8 @@ if (isset($_SESSION["user_id"])) {
                                         <tr>
                                             <th>User</th>
                                             <th>Book</th>
-                                            <th>Start Date</th>
-                                            <th>End Date</th>
+                                            <th>Issue Date</th>
+                                            <th>Return Date</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -77,14 +76,13 @@ if (isset($_SESSION["user_id"])) {
                                         <tr>
 
                                         </tr>
-
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <td><strong>User</strong></td>
                                             <td><strong>Book</strong></td>
-                                            <td><strong>Start Date</strong></td>
-                                            <td><strong>End Date</strong></td>
+                                            <td><strong>Issue Date</strong></td>
+                                            <td><strong>Return Date</strong></td>
                                             <td><strong>Status</strong></td>
                                             <td><strong>Action</strong></td>
                                         </tr>
