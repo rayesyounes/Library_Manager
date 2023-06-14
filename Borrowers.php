@@ -113,28 +113,29 @@ if (isset($_SESSION["user_id"])) {
                         </div>
                         <hr>
                         <br>
-                        <form class="borrower" id="add_borrower" method="post" 
-                            novalidate>
+                        <form class="borrower" id="add_borrower" method="post" action="add-borrower-process.php" novalidate>
                             <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                <div class="col-sm-4">
                                     <input class="form-control form-control-user" type="text" id="user_cin"
                                         placeholder="User Cin" name="cin">
                                 </div>
-
-                                <div class="col-sm-6">
-                                    <input class="form-control form-control-user" type="text" id="book_isbn"
-                                        placeholder="Book ISBN" name="isbn">
+                                <input type="hidden" name="user_id" id="user_id">
+                                <div class="col-sm-8">
+                                    <input class="form-control form-control-user" type="email" id="user_email"
+                                        aria-describedby="emailHelp" placeholder="User Email" name="email" disabled>
                                 </div>
                             </div>
 
-                            <div class="mb-3">
-                                <input class="form-control form-control-user" type="email" id="user_email"
-                                    aria-describedby="emailHelp" placeholder="User Email" name="email" disabled>
-                            </div>
-
-                            <div class="mb-3">
-                                <input class="form-control form-control-user" type="email" id="book_title"
-                                    aria-describedby="emailHelp" placeholder="Book Title" name="title" disabled>
+                            <div class="row mb-3">
+                                <div class="col-sm-4">
+                                    <input class="form-control form-control-user" type="text" id="book_isbn"
+                                    placeholder="Book ISBN" name="isbn">
+                                </div>
+                                <input type="hidden" name="book_id" id="book_id">
+                                <div class="col-sm-8">
+                                    <input class="form-control form-control-user" type="email" id="book_title"
+                                        aria-describedby="emailHelp" placeholder="Book Title" name="title" disabled>
+                                </div>
                             </div>
 
                             <div class=" mb-3">

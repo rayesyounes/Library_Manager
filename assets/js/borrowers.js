@@ -1,3 +1,4 @@
+
 const addBorrowerButton = document.getElementById('addBorrowerButton');
 const addBorrowerModal = document.getElementById('addBorrowerModal');
 const hide_addModal_Button = document.getElementById('hide_addModal_Button');
@@ -15,18 +16,16 @@ hide_addModal_Button.addEventListener('click', function () {
 });
 
 
-
-
-
-
 document.getElementById("book_isbn").addEventListener("input", function () {
     var isbn = this.value;
     fetchBookTitle(isbn);
+    fetchBookID(isbn);
 });
 
 document.getElementById("user_cin").addEventListener("input", function () {
     var cin = this.value;
     fetchUserEmail(cin);
+    fetchUserID(cin);
 });
 
 function fetchBookTitle(isbn) {
@@ -47,6 +46,24 @@ function fetchBookTitle(isbn) {
     xhr.send();
 }
 
+function fetchBookID(isbn) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                var id = xhr.responseText;
+                document.getElementById("book_id").value = id;
+            } else {
+                console.log("Error: " + xhr.status);
+            }
+        }
+    };
+
+    var url = "fetch-book-id.php?isbn=" + encodeURIComponent(isbn);
+    xhr.open("GET", url, true);
+    xhr.send();
+}
+
 function fetchUserEmail(cin) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
@@ -61,6 +78,24 @@ function fetchUserEmail(cin) {
     };
 
     var url = "fetch-user-email.php?cin=" + encodeURIComponent(cin);
+    xhr.open("GET", url, true);
+    xhr.send();
+}
+
+function fetchUserID(cin) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                var id = xhr.responseText;
+                document.getElementById("user_id").value = id;
+            } else {
+                console.log("Error: " + xhr.status);
+            }
+        }
+    };
+
+    var url = "fetch-user-id.php?cin=" + encodeURIComponent(cin);
     xhr.open("GET", url, true);
     xhr.send();
 }
