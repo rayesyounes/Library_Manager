@@ -188,7 +188,7 @@ if (isset($_SESSION["user_id"])) {
                                             <input type="hidden" name="id" id="id_hidden" value="<?php echo $id; ?>">
                                             <div class="col-4" style="width: 250px; height: 320px;">
                                                 <img title="" id="levery" style="width: 100%; height: 100%;"
-                                                    class="book-image" style="" src="">
+                                                    class="book-image rounded" style="" src="">
                                             </div>
                                             <div class="col-8">
                                                 <div class="row mb-3">

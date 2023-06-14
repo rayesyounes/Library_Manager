@@ -19,6 +19,7 @@ if (isset($_SESSION["user_id"])) {
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Nunito.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/shelf.css">
     <?php include("scroll-bar.php"); ?>
 </head>
 
@@ -35,8 +36,7 @@ if (isset($_SESSION["user_id"])) {
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-2">
                         <h3 class="text-dark mb-4">Shelf</h3>
-                        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i
-                                class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a>
+                        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#">Order Book</a>
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
@@ -63,7 +63,7 @@ if (isset($_SESSION["user_id"])) {
                                 </div>
                             </div>
                             <br>
-                            <section class="portfolio-block projects-cards">
+                            <section>
                                 <div class="container-fluid">
                                     <div class="row justify-content-evenly">
                                         <?php
@@ -102,6 +102,54 @@ if (isset($_SESSION["user_id"])) {
                                 </div>
                             </section>
 
+                            <div id="BookModal" class="modal">
+                                <div class="modal-content">
+                                    <div class="p-3">
+                                        <div class="text-center">
+                                            <h4 class="text-dark mb-4">Book Info</h4>
+                                        </div>
+                                        <hr>
+                                        <br>
+                                        <form class="book row" id="book" novalidate>
+                                            <input type="hidden" name="id" id="id_hidden" value="<?php echo $id; ?>">
+                                            <div class="col-4" style="width: 250px; height: 310px;">
+                                                <img title="" id="levery" style="width: 100%; height: 100%;"
+                                                    class="book-image rounded" style="" src="">
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12 mb-3 mb-sm-0">
+                                                        <input class="form-control form-control-user" type="text"
+                                                            id="title" placeholder="Title" name="title" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-6">
+                                                        <input class="form-control form-control-user" type="text"
+                                                            id="author" placeholder="Author" name="author" disabled>
+                                                    </div>
+                                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                                        <input class="form-control form-control-user" type="text"
+                                                            id="isbn" placeholder="ISBN" name="isbn" disabled>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <br>
+                                                <br>
+                                                <hr>
+                                                <br>
+                                                <div class="d-sm-flex justify-content-between align-items-center my-2">
+                                                    <button class="btn btn-primary btn-user w-50" type="submit"
+                                                        name="order_book">Order</button>
+                                                    <a id="hide_Modal_Button"
+                                                        class="btn btn-secondary btn-user w-40">Cancel</a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
 
 
                             <div class="row">
