@@ -3,22 +3,18 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2023 at 07:59 PM
+-- Generation Time: Jun 14, 2023 at 07:47 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-
 START TRANSACTION;
+SET time_zone = "+00:00";
 
-SET TIME_ZONE = "+00:00";
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-
 /*!40101 SET NAMES utf8mb4 */;
 
 --
@@ -31,49 +27,41 @@ SET TIME_ZONE = "+00:00";
 -- Table structure for table `books`
 --
 
-CREATE TABLE `BOOKS` (
-  `ID_BOOK` INT(11) NOT NULL,
-  `TITLE` VARCHAR(255) NOT NULL,
-  `AUTHOR` VARCHAR(255) NOT NULL,
-  `ISBN` VARCHAR(255) NOT NULL,
-  `QUANTITY` INT(11) NOT NULL,
-  `PICTURE` VARCHAR(255) NOT NULL
-) ENGINE=INNODB DEFAULT CHARSET=UTF8MB4 COLLATE=UTF8MB4_GENERAL_CI;
+CREATE TABLE `books` (
+  `ID_Book` int(11) NOT NULL,
+  `Title` varchar(255) NOT NULL,
+  `Author` varchar(255) NOT NULL,
+  `ISBN` varchar(255) NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `Picture` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `books`
 --
 
-INSERT INTO `BOOKS` (
-  `ID_BOOK`,
-  `TITLE`,
-  `AUTHOR`,
-  `ISBN`,
-  `QUANTITY`,
-  `PICTURE`
-) VALUES (
-  20,
-  'Emotional intelligence ',
-  'Robert Julmane',
-  'AZ34532009',
-  10,
-  'assets/img/books/pexels-mark-cruzat-3494806.jpg'
-);
+INSERT INTO `books` (`ID_Book`, `Title`, `Author`, `ISBN`, `Quantity`, `Picture`) VALUES
+(20, 'Emotional intelligence ', 'Robert Julmane', 'AZ34538009', 10, 'assets/img/books/9780553804911_l.jpg'),
+(23, 'Getting to Yes', 'Robert ghill', 'AZ34532639', 10, 'assets/img/books/Getting to Yes.jpg'),
+(24, 'The Bucket List', 'adrian bianchi', 'AF6294122', 2, 'assets/img/books/The Bucket List.jpg'),
+(25, 'Can\'t hurt me', 'David Goggins', 'REF598354', 5, 'assets/img/books/Can\'t Hurt Me.jpg'),
+(26, 'What color is your parachute ', 'dave huligo', 'QM21463756', 3, 'assets/img/books/What Color Is Your Parachute.jpg'),
+(27, 'The Wisdom of the Bullfrog', 'Sebastian vettel', 'AFV894122', 5, 'assets/img/books/The Wisdom of the Bullfrog.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Borrowers`
+-- Table structure for table `borrowers`
 --
 
-CREATE TABLE `BORROWERS` (
-  `ID_EMPRUNT` INT(11) NOT NULL,
-  `ID_USER` INT(11) NOT NULL,
-  `ID_BOOK` INT(11) NOT NULL,
-  `START_DATE` DATE NOT NULL,
-  `FINISH_DATE` DATE NOT NULL,
-  `IS_RETURNED` TINYINT(1) NOT NULL
-) ENGINE=INNODB DEFAULT CHARSET=UTF8MB4 COLLATE=UTF8MB4_GENERAL_CI;
+CREATE TABLE `borrowers` (
+  `ID_Borrower` int(11) NOT NULL,
+  `ID_User` int(11) NOT NULL,
+  `ID_Book` int(11) NOT NULL,
+  `Issue_Date` date NOT NULL,
+  `Return_Date` date NOT NULL,
+  `Status` enum('Issued','Returned','Not Returned','Ordered') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -81,65 +69,27 @@ CREATE TABLE `BORROWERS` (
 -- Table structure for table `users`
 --
 
-CREATE TABLE `USERS` (
-  `ID_USER` INT(11) NOT NULL,
-  `CIN` VARCHAR(255) NOT NULL,
-  `FIRST_NAME` VARCHAR(255) NOT NULL,
-  `LAST_NAME` VARCHAR(255) NOT NULL,
-  `EMAIL` VARCHAR(255) NOT NULL,
-  `PHONE_NUMBER` VARCHAR(255) NOT NULL,
-  `PASS_KEY` VARCHAR(255) NOT NULL,
-  `IS_ADMIN` TINYINT(1) NOT NULL,
-  `AVATAR` VARCHAR(255) NOT NULL
-) ENGINE=INNODB DEFAULT CHARSET=UTF8MB4 COLLATE=UTF8MB4_GENERAL_CI;
+CREATE TABLE `users` (
+  `ID_User` int(11) NOT NULL,
+  `Cin` varchar(255) NOT NULL,
+  `First_Name` varchar(255) NOT NULL,
+  `Last_Name` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `Phone_Number` varchar(255) NOT NULL,
+  `Pass_key` varchar(255) NOT NULL,
+  `Is_Admin` tinyint(1) NOT NULL,
+  `Avatar` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `USERS` (
-  `ID_USER`,
-  `CIN`,
-  `FIRST_NAME`,
-  `LAST_NAME`,
-  `EMAIL`,
-  `PHONE_NUMBER`,
-  `PASS_KEY`,
-  `IS_ADMIN`,
-  `AVATAR`
-) VALUES (
-  1,
-  'L649596',
-  'Younes',
-  'Rayes',
-  'rayesyounes88@gmail.com',
-  '0642599866',
-  '$2y$10$Z0c6CkVEMMI7yH4Y7cuRcOFwCd99VnQrIRWkj1J4vVPI67f0m64Hm',
-  1,
-  ''
-),
-(
-  71,
-  'L641038',
-  'Hassan',
-  'Ajoulan',
-  'hassanajoulan@mail.com',
-  '0642519826',
-  '$2y$10$M5m0RJULraamDaaofRekEeMf.goKgH/PYYwhbWtQ0xxGBKuZkW7iS',
-  0,
-  'assets/img/avatars/profile-default.png'
-),
-(
-  72,
-  'L6495163',
-  'Amin',
-  'Aamri',
-  'aminaamri@mail.com',
-  '0642129876',
-  '$2y$10$pXMmybnq7VB.B7GxgRlAFOpeE9AGVj7Ttdspuu1JHZqQAOZHpWY5K',
-  0,
-  'assets/img/avatars/profile-default.png'
-);
+INSERT INTO `users` (`ID_User`, `Cin`, `First_Name`, `Last_Name`, `Email`, `Phone_Number`, `Pass_key`, `Is_Admin`, `Avatar`) VALUES
+(1, 'L649596', 'Younes', 'Rayes', 'rayesyounes@email.com', '0642599866', '$2y$10$Z0c6CkVEMMI7yH4Y7cuRcOFwCd99VnQrIRWkj1J4vVPI67f0m64Hm', 1, 'assets/img/avatars/avatar_6488e57c185a8_stockholm.png'),
+(71, 'L641038', 'Hassan', 'Ajoulan', 'hassanajoulan@email.com', '0642519826', '$2y$10$M5m0RJULraamDaaofRekEeMf.goKgH/PYYwhbWtQ0xxGBKuZkW7iS', 0, 'assets/img/avatars/avatar_648977f796b50_1.jpg'),
+(72, 'L6495163', 'Amin', 'Aamri', 'aminaamri@email.com', '0642129876', '$2y$10$pXMmybnq7VB.B7GxgRlAFOpeE9AGVj7Ttdspuu1JHZqQAOZHpWY5K', 0, 'assets/img/avatars/profile-default.png'),
+(73, 'L472499', 'Mohssin', 'Laarbii', 'mohssinlaarbi@email.com', '0647299866', '$2y$10$cHompdUSCvkwHiy0AdI/cueC67KlX4t75HNtfKJQyp3TuCS/AjVdK', 0, 'assets/img/avatars/profile-default.png');
 
 --
 -- Indexes for dumped tables
@@ -148,17 +98,25 @@ INSERT INTO `USERS` (
 --
 -- Indexes for table `books`
 --
-ALTER TABLE `BOOKS` ADD PRIMARY KEY (`ID_BOOK`);
+ALTER TABLE `books`
+  ADD PRIMARY KEY (`ID_Book`);
 
 --
--- Indexes for table `Borrowers`
+-- Indexes for table `borrowers`
 --
-ALTER TABLE `BORROWERS` ADD PRIMARY KEY (`ID_EMPRUNT`), ADD KEY `BOOK_KEY` (`ID_BOOK`), ADD KEY `USER_KEY` (`ID_USER`);
+ALTER TABLE `borrowers`
+  ADD PRIMARY KEY (`ID_Borrower`),
+  ADD KEY `Book_key` (`ID_Book`),
+  ADD KEY `User_Key` (`ID_User`);
 
 --
 -- Indexes for table `users`
 --
-ALTER TABLE `USERS` ADD PRIMARY KEY (`ID_USER`), ADD UNIQUE KEY `EMAIL` (`EMAIL`), ADD UNIQUE KEY `CIN` (`CIN`), ADD UNIQUE KEY `PHONE_NUMBER` (`PHONE_NUMBER`);
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`ID_User`),
+  ADD UNIQUE KEY `Email` (`Email`),
+  ADD UNIQUE KEY `Cin` (`Cin`),
+  ADD UNIQUE KEY `Phone_Number` (`Phone_Number`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -167,31 +125,33 @@ ALTER TABLE `USERS` ADD PRIMARY KEY (`ID_USER`), ADD UNIQUE KEY `EMAIL` (`EMAIL`
 --
 -- AUTO_INCREMENT for table `books`
 --
-ALTER TABLE `BOOKS` MODIFY `ID_BOOK` INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+ALTER TABLE `books`
+  MODIFY `ID_Book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT for table `Borrowers`
+-- AUTO_INCREMENT for table `borrowers`
 --
-ALTER TABLE `BORROWERS` MODIFY `ID_EMPRUNT` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `borrowers`
+  MODIFY `ID_Borrower` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `USERS` MODIFY `ID_USER` INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+ALTER TABLE `users`
+  MODIFY `ID_User` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `Borrowers`
+-- Constraints for table `borrowers`
 --
-ALTER TABLE `BORROWERS` ADD CONSTRAINT `BOOK_KEY` FOREIGN KEY (`ID_BOOK`) REFERENCES `BOOKS` (`ID_BOOK`) ON DELETE CASCADE ON UPDATE CASCADE, ADD CONSTRAINT `USER_KEY` FOREIGN KEY (`ID_USER`) REFERENCES `USERS` (`ID_USER`) ON DELETE CASCADE ON UPDATE CASCADE;
-
+ALTER TABLE `borrowers`
+  ADD CONSTRAINT `Book_key` FOREIGN KEY (`ID_Book`) REFERENCES `books` (`ID_Book`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `User_Key` FOREIGN KEY (`ID_User`) REFERENCES `users` (`ID_User`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -113,54 +113,46 @@ if (isset($_SESSION["user_id"])) {
                         </div>
                         <hr>
                         <br>
-                        <form class="borrower" id="add_borrower" method="post" action="add-borrower-process.php"
+                        <form class="borrower" id="add_borrower" method="post" 
                             novalidate>
-                            <input type="hidden" name="" value="">
                             <div class="row mb-3">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input class="form-control form-control-user" type="text" id="add_first_name"
-                                        placeholder="First Name" name="first_name">
+                                    <input class="form-control form-control-user" type="text" id="user_cin"
+                                        placeholder="User Cin" name="cin">
                                 </div>
-                                <div class="col-sm-6">
-                                    <input class="form-control form-control-user" type="text" id="add_last_name"
-                                        placeholder="Last Name" name="last_name">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input class="form-control form-control-user" type="text" id="add_cin"
-                                        placeholder="Cin" name="cin">
-                                </div>
-                                <div class="col-sm-6">
-                                    <input class="form-control form-control-user" type="text" id="add_phone"
-                                        placeholder="Phone number" name="phone">
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <input class="form-control form-control-user" type="email" id="add_email"
-                                    aria-describedby="emailHelp" placeholder="Email" name="email">
-                            </div>
-                            <div class=" mb-3">
-                                <input class="form-control form-control-user" type="password" id="add_password"
-                                    placeholder="Password" name="password">
-                            </div>
 
-                            <div class=" mb-3">
-                                <input class="form-control form-control-user" type="date" id="add_password" name="password">
+                                <div class="col-sm-6">
+                                    <input class="form-control form-control-user" type="text" id="book_isbn"
+                                        placeholder="Book ISBN" name="isbn">
+                                </div>
                             </div>
 
                             <div class="mb-3">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="add_formCheck" name="formCheck">
-                                    <label class="form-check-label" for="formCheck">
-                                        <strong>Returned</strong>
-                                    </label>
-                                </div>
+                                <input class="form-control form-control-user" type="email" id="user_email"
+                                    aria-describedby="emailHelp" placeholder="User Email" name="email" disabled>
+                            </div>
+
+                            <div class="mb-3">
+                                <input class="form-control form-control-user" type="email" id="book_title"
+                                    aria-describedby="emailHelp" placeholder="Book Title" name="title" disabled>
+                            </div>
+
+                            <div class=" mb-3">
+                                <input class="form-control form-control-user" type="date" id="return_date" name="return_date">
+                            </div>
+                            
+                            <div class=" mb-3">
+                                <select class="form-control form-control-user" type="date" id="status" name="status">
+                                    <option value="Issued">Issued</option>
+                                    <option value="Returned">Returned</option>
+                                    <option value="Not Returned">Not Returned</option>
+                                    <option value="Ordered">Ordered</option>
+                                </select>
                             </div>
                             <hr>
                             <br>
                             <div class="d-sm-flex justify-content-between align-items-center my-2">
-                                <button class="btn btn-primary btn-user w-50" type="submit" name="add">add user</button>
+                                <button class="btn btn-primary btn-user w-50" type="submit" name="add">add Borrower</button>
                                 <a id="hide_addModal_Button" class="btn btn-secondary btn-user w-40">Cancel</a>
                             </div>
                         </form>
@@ -173,7 +165,9 @@ if (isset($_SESSION["user_id"])) {
 
         </div><a class="text-center border rounded scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
     <script src="assets/bootstrap/js/bootstrap.min.js" defer></script>
+    <script src="assets/js/validation-borrowers.js" defer></script>
     <script src="assets/js/borrowers.js" defer></script>
     <script src="assets/js/script.js" defer></script>
 </body>
