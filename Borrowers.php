@@ -36,7 +36,8 @@ if (isset($_SESSION["user_id"])) {
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-2">
                         <h3 class="text-dark mb-4">Borrowers</h3>
-                        <a id="addBorrowerButton" class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#">Add Borrower</a>
+                        <a id="addBorrowerButton" class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button"
+                            href="#">Add Borrower</a>
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
@@ -63,30 +64,86 @@ if (isset($_SESSION["user_id"])) {
                             </div>
                             <div class="table-responsive table mt-2" id="dataTable" role="grid"
                                 aria-describedby="dataTable_info">
-                                <table class="table my-0" id="dataTable">
+                                <table class="table table-hover my-0" id="dataTable">
                                     <thead>
                                         <tr>
-                                            <th>User</th>
-                                            <th>Book</th>
+                                            <th>Book's Title</th>
+                                            <th>Borrower's Email</th>
                                             <th>Issue Date</th>
                                             <th>Return Date</th>
                                             <th>Status</th>
-                                            <th>Action</th>
+                                            <th colspan="2">Action</th>
                                         </tr>
                                     </thead>
+                                        
                                     <tbody>
-                                        <tr>
+                                        <?php
+                                        $mysqli = require("db.php");
+                                        $sql = "SELECT borrowers.ID_Borrower, users.Last_Name, users.First_Name, users.Email, books.Title, borrowers.Issue_Date, borrowers.Return_Date, borrowers.Status
+                                        FROM borrowers
+                                        INNER JOIN books ON borrowers.ID_Book = books.ID_Book
+                                        INNER JOIN users ON borrowers.ID_User = users.ID_User";
+                                        $result = $mysqli->query($sql);
+                                        ?>
+                                        <?php while ($borrower = $result->fetch_assoc()) {
+                                            ; ?>
+                                            <tr>
+                                                <td class="align-middle">
+                                                    <?php echo $borrower['Title']; ?>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <?php echo $borrower['Email']; ?>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <?php echo $borrower['Issue_Date']; ?>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <?php echo $borrower['Return_Date']; ?>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <?php if ($borrower['Status'] == 'Ordered') { ?>
+                                                        <span class="badge badge-pill bg-primary col-10"><?php echo $borrower['Status']; ?></span>
+                                                    <?php } elseif ($borrower['Status'] == 'Issued') { ?>
+                                                        <span class="badge badge-pill bg-info col-10"><?php echo $borrower['Status']; ?></span>
+                                                    <?php } elseif ($borrower['Status'] == 'Returned') { ?>
+                                                        <span class="badge badge-pill bg-success col-10"><?php echo $borrower['Status']; ?></span>
+                                                    <?php } elseif ($borrower['Status'] == 'Not Returned') { ?>
+                                                        <span class="badge badge-pill bg-danger col-10"><?php echo $borrower['Status']; ?></span>
+                                                    <?php } ?>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <?php if ($borrower['Status'] == 'Ordered') { ?>
+                                                        <span class="d-flex justify-content-between">
+                                                            <a class="btn btn-success btn-sm text-white col-7" title="Accept"><i class="fas fa-check"></i></a>
+                                                            <a class="btn btn-danger btn-sm col-4" title="Reject"><i class="fas fa-times"></i></a>
+                                                        </span>
+                                                    <?php } elseif ($borrower['Status'] == 'Issued') { ?>
+                                                        <a class="btn btn-warning btn-sm text-white col-12" title="Return"><i class="fas fa-undo"></i></a>
 
-                                        </tr>
+                                                    <?php } elseif ($borrower['Status'] == 'Returned') { ?>
+                                                        <a class="btn btn-secondary btn-sm text-white col-12" title="Returned" disabled><i class="fas fa-check-circle"></i></a>
+
+                                                    <?php } elseif ($borrower['Status'] == 'Not Returned') { ?>
+                                                        <spa class="d-flex justify-content-between">
+                                                            <a class="btn btn-secondary btn-sm col-7" title="Not Returned"><i class="fas fa-times-circle"></i></a>
+                                                            <a class="btn btn-warning btn-sm text-white col-4" title="Return"><i class="fas fa-undo"></i></a>
+                                                        </span>
+                                                    <?php } ?>
+                                                    </td>
+                                                </tr>
+                                        <?php }
+                                        mysqli_close($mysqli);
+                                        ?>
                                     </tbody>
+
                                     <tfoot>
                                         <tr>
-                                            <td><strong>User</strong></td>
-                                            <td><strong>Book</strong></td>
+                                            <td><strong>Book's Title</strong></td>
+                                            <td><strong>Borrower's Email</strong></td>
                                             <td><strong>Issue Date</strong></td>
                                             <td><strong>Return Date</strong></td>
                                             <td><strong>Status</strong></td>
-                                            <td><strong>Action</strong></td>
+                                            <td colspan="2"><strong>Action</strong></td>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -94,7 +151,16 @@ if (isset($_SESSION["user_id"])) {
                             <div class="row">
                                 <div class="col-md-6 align-self-center">
                                     <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">
-                                        Showing 1 to 10 of 27</p>
+                                        <?php
+                                        $mysqli = require("db.php");
+                                        $sql = "SELECT COUNT(*) AS total FROM borrowers";
+                                        $result = $mysqli->query($sql);
+                                        $row = $result->fetch_assoc();
+                                        $totalborrowers = $row['total'];
+
+                                        echo "Showing 1 to " . $totalborrowers . " of " . $totalborrowers;
+                                        ?>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -113,7 +179,8 @@ if (isset($_SESSION["user_id"])) {
                         </div>
                         <hr>
                         <br>
-                        <form class="borrower" id="add_borrower" method="post" action="add-borrower-process.php" novalidate>
+                        <form class="borrower" id="add_borrower" method="post" action="add-borrower-process.php"
+                            novalidate>
                             <div class="row mb-3">
                                 <div class="col-sm-4">
                                     <input class="form-control form-control-user" type="text" id="user_cin"
@@ -129,7 +196,7 @@ if (isset($_SESSION["user_id"])) {
                             <div class="row mb-3">
                                 <div class="col-sm-4">
                                     <input class="form-control form-control-user" type="text" id="book_isbn"
-                                    placeholder="Book ISBN" name="isbn">
+                                        placeholder="Book ISBN" name="isbn">
                                 </div>
                                 <input type="hidden" name="book_id" id="book_id">
                                 <div class="col-sm-8">
@@ -139,9 +206,10 @@ if (isset($_SESSION["user_id"])) {
                             </div>
 
                             <div class=" mb-3">
-                                <input class="form-control form-control-user" type="date" id="return_date" name="return_date">
+                                <input class="form-control form-control-user" type="date" id="return_date"
+                                    name="return_date">
                             </div>
-                            
+
                             <div class=" mb-3">
                                 <select class="form-control form-control-user" type="date" id="status" name="status">
                                     <option value="Issued">Issued</option>
@@ -153,7 +221,8 @@ if (isset($_SESSION["user_id"])) {
                             <hr>
                             <br>
                             <div class="d-sm-flex justify-content-between align-items-center my-2">
-                                <button class="btn btn-primary btn-user w-50" type="submit" name="add">add Borrower</button>
+                                <button class="btn btn-primary btn-user w-50" type="submit" name="add">add
+                                    Borrower</button>
                                 <a id="hide_addModal_Button" class="btn btn-secondary btn-user w-40">Cancel</a>
                             </div>
                         </form>
