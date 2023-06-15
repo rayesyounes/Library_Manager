@@ -157,12 +157,12 @@ if (isset($_SESSION["user_id"])) {
 
                                                     <?php } elseif ($status == 'Returned') { ?>
                                                         <span class="d-flex justify-content-between">
-                                                            <a class="btn btn-secondary btn-sm text-white col-7"
+                                                            <a class="btn btn-secondary btn-sm text-white col-12"
                                                                 title="Returned" disabled><i
                                                                     class="fas fa-check-circle"></i></a>
-                                                            <a href="update-status.php?id=<?php echo $borrowerId; ?>&Status=Not Returned"
+                                                            <!-- <a href="update-status.php?id=<?php echo $borrowerId; ?>&Status=Not Returned"
                                                                 class="btn btn-warning btn-sm text-white col-4"
-                                                                title="Not Return"><i class="fas fa-undo"></i></a>
+                                                                title="Not Return"><i class="fas fa-undo"></i></a> -->
                                                         </span>
 
                                                     <?php } elseif ($status == 'Not Returned') { ?>
