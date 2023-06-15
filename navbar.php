@@ -3,10 +3,9 @@ if (isset($user) && !isset($_SESSION['welcome_message'])) {
     // Set a session variable to track that the welcome message has been shown
     $_SESSION['welcome_message'] = true;
     ?>
-    <div class="alert alert-success alert-dismissible custom-alert top-0 fade show position-fixed mt-3 start-50 translate-middle-x"
-        role="alert">
-        <em><strong>Hello Mr
-                <?php echo htmlspecialchars($user["Last_Name"]); ?>, Welcome back!
+    <div class="alert alert-success alert-dismissible custom-alert right-5 top-0 fade show position-fixed mt-3 start-50 col-8 px-5 translate-middle-x" role="alert">
+        <em><strong>
+            Hello Mr <?php echo htmlspecialchars($user["Last_Name"]); ?>, Welcome back!
             </strong></em>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>

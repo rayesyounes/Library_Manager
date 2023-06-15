@@ -59,11 +59,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     <form class="user" id="login_form" method="POST" novalidate>
 
                                         <?php if ($is_invalid): ?>
-
-                                            <div class="alert alert-danger alert-dismissible custom-alert top-0 fade show position-fixed mt-3 start-50 translate-middle-x"
-                                                role="alert"><em><strong>Invalid login, please verify your
-                                                        credentials</strong></em><button type="button" class="btn-close"
-                                                    data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                            <div class="alert alert-danger alert-dismissible custom-alert top-0 fade show position-fixed mt-3 start-50 col-10 px-5 translate-middle-x" role="alert">
+                                                <em><strong>Invalid login, please verify your credentials</strong></em>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                                         <?php endif; ?>
 
                                         <div class="mb-3">
