@@ -79,7 +79,7 @@ if (isset($user) && !isset($_SESSION['welcome_message'])) {
 
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="dropdown-list-image me-3"><img title="#" class="rounded-circle"
-                                        src="assets/img/avatars/stockholm.jpg">
+                                        src="assets/img/avatars/profile-default.png">
                                     <div class="bg-warning status-indicator"></div>
                                 </div>
                                 <div class="fw-bold">
