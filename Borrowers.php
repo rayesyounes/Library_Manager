@@ -47,13 +47,23 @@ if (isset($_SESSION["user_id"])) {
                             <div class="row">
                                 <div class="col-md-6 text-nowrap">
                                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                        <label class="form-label">Show&nbsp;<select
-                                                class="d-inline-block form-select form-select-sm">
+                                        <label class="form-label">Show&nbsp;
+                                            <select class="d-inline-block form-select form-select-sm">
                                                 <option value="10" selected="">10</option>
                                                 <option value="25">25</option>
                                                 <option value="50">50</option>
                                                 <option value="100">100</option>
-                                            </select>&nbsp;</label>
+                                            </select>
+                                            
+                                            <select id="statusFilter"
+                                                class="filter d-inline-block form-select form-select-sm">
+                                                <option value="all" selected="">All</option>
+                                                <option value="ordered">Ordered</option>
+                                                <option value="issued">Issued</option>
+                                                <option value="returned">Returned</option>
+                                                <option value="not returned">Not Returned</option>
+                                            </select>
+                                            &nbsp;</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -97,7 +107,7 @@ if (isset($_SESSION["user_id"])) {
                                                 $status = 'Not Returned'; // Update the status variable
                                             }
                                             ?>
-                                            <tr>
+                                            <tr data-status="<?php echo $status; ?>">
                                                 <td class="align-middle">
                                                     <?php echo $borrower['Title']; ?>
                                                 </td>

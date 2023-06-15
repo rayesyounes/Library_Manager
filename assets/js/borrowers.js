@@ -99,3 +99,18 @@ function fetchUserID(cin) {
     xhr.open("GET", url, true);
     xhr.send();
 }
+
+document.getElementById('statusFilter').addEventListener('change', function () {
+    const selectedStatus = this.value;
+    const tableRows = document.querySelectorAll('#dataTable tbody tr');
+
+    tableRows.forEach(function (row) {
+        const rowStatus = row.dataset.status;
+
+        if (selectedStatus === 'all' || selectedStatus === rowStatus || (selectedStatus === 'not returned' && rowStatus === 'Not Returned')) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+});
