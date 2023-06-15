@@ -159,7 +159,7 @@ if (isset($_SESSION["user_id"])) {
                                         <hr>
                                         <br>
                                         <form class="borrower" id="add_borrower" method="post"
-                                            action="add-borrower-userview-process copy.php" novalidate>
+                                            action="add-borrower-userview-process.php" novalidate>
                                             <div class="row mb-3">
                                                 <div class="col-sm-4">
                                                     <input class="form-control form-control-user" type="text"
