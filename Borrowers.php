@@ -75,7 +75,7 @@ if (isset($_SESSION["user_id"])) {
                                             <th colspan="2">Action</th>
                                         </tr>
                                     </thead>
-                                        
+
                                     <tbody>
                                         <?php
                                         $mysqli = require("db.php");
@@ -84,9 +84,11 @@ if (isset($_SESSION["user_id"])) {
                                         INNER JOIN books ON borrowers.ID_Book = books.ID_Book
                                         INNER JOIN users ON borrowers.ID_User = users.ID_User";
                                         $result = $mysqli->query($sql);
-                                        ?>
-                                        <?php while ($borrower = $result->fetch_assoc()) {
-                                            ; ?>
+
+                                        while ($borrower = $result->fetch_assoc()) {
+                                            $borrowerId = $borrower['ID_Borrower'];
+                                            $status = $borrower['Status'];
+                                            ?>
                                             <tr>
                                                 <td class="align-middle">
                                                     <?php echo $borrower['Title']; ?>
@@ -101,40 +103,59 @@ if (isset($_SESSION["user_id"])) {
                                                     <?php echo $borrower['Return_Date']; ?>
                                                 </td>
                                                 <td class="align-middle">
-                                                    <?php if ($borrower['Status'] == 'Ordered') { ?>
-                                                        <span class="badge badge-pill bg-primary col-10"><?php echo $borrower['Status']; ?></span>
-                                                    <?php } elseif ($borrower['Status'] == 'Issued') { ?>
-                                                        <span class="badge badge-pill bg-info col-10"><?php echo $borrower['Status']; ?></span>
-                                                    <?php } elseif ($borrower['Status'] == 'Returned') { ?>
-                                                        <span class="badge badge-pill bg-success col-10"><?php echo $borrower['Status']; ?></span>
-                                                    <?php } elseif ($borrower['Status'] == 'Not Returned') { ?>
-                                                        <span class="badge badge-pill bg-danger col-10"><?php echo $borrower['Status']; ?></span>
+                                                    <?php if ($status == 'Ordered') { ?>
+                                                        <span class="badge badge-pill bg-primary col-10">
+                                                            <?php echo $status; ?>
+                                                        </span>
+                                                    <?php } elseif ($status == 'Issued') { ?>
+                                                        <span class="badge badge-pill bg-info col-10">
+                                                            <?php echo $status; ?>
+                                                        </span>
+                                                    <?php } elseif ($status == 'Returned') { ?>
+                                                        <span class="badge badge-pill bg-success col-10">
+                                                            <?php echo $status; ?>
+                                                        </span>
+                                                    <?php } elseif ($status == 'Not Returned') { ?>
+                                                        <span class="badge badge-pill bg-danger col-10">
+                                                            <?php echo $status; ?>
+                                                        </span>
                                                     <?php } ?>
                                                 </td>
                                                 <td class="align-middle">
-                                                    <?php if ($borrower['Status'] == 'Ordered') { ?>
+                                                    <?php if ($status == 'Ordered') { ?>
                                                         <span class="d-flex justify-content-between">
-                                                            <a class="btn btn-success btn-sm text-white col-7" title="Accept"><i class="fas fa-check"></i></a>
-                                                            <a class="btn btn-danger btn-sm col-4" title="Reject"><i class="fas fa-times"></i></a>
+                                                            <a href="update-status.php?id=<?php echo $borrowerId; ?>&Status=Issued"
+                                                                class="btn btn-success btn-sm text-white col-7"
+                                                                title="Accept"><i class="fas fa-check"></i></a>
+                                                            <a href="delete-borrower.php?id=<?php echo $borrowerId; ?>"
+                                                                class="btn btn-danger btn-sm col-4" title="Reject"><i
+                                                                    class="fas fa-times"></i></a>
                                                         </span>
-                                                    <?php } elseif ($borrower['Status'] == 'Issued') { ?>
-                                                        <a class="btn btn-warning btn-sm text-white col-12" title="Return"><i class="fas fa-undo"></i></a>
+                                                    <?php } elseif ($status == 'Issued') { ?>
+                                                        <a href="update-status.php?id=<?php echo $borrowerId; ?>&Status=Returned"
+                                                            class="btn btn-warning btn-sm text-white col-12" title="Return"><i
+                                                                class="fas fa-undo"></i></a>
 
-                                                    <?php } elseif ($borrower['Status'] == 'Returned') { ?>
-                                                        <a class="btn btn-secondary btn-sm text-white col-12" title="Returned" disabled><i class="fas fa-check-circle"></i></a>
+                                                    <?php } elseif ($status == 'Returned') { ?>
+                                                        <a class="btn btn-secondary btn-sm text-white col-12" title="Returned"
+                                                            disabled><i class="fas fa-check-circle"></i></a>
 
-                                                    <?php } elseif ($borrower['Status'] == 'Not Returned') { ?>
-                                                        <spa class="d-flex justify-content-between">
-                                                            <a class="btn btn-secondary btn-sm col-7" title="Not Returned"><i class="fas fa-times-circle"></i></a>
-                                                            <a class="btn btn-warning btn-sm text-white col-4" title="Return"><i class="fas fa-undo"></i></a>
+                                                    <?php } elseif ($status == 'Not Returned') { ?>
+                                                        <span class="d-flex justify-content-between">
+                                                            <a class="btn btn-secondary btn-sm col-7" title="Not Returned"><i
+                                                                    class="fas fa-times-circle"></i></a>
+                                                            <a href="update-status.php?id=<?php echo $borrowerId; ?>&Status=Returned"
+                                                                class="btn btn-warning btn-sm text-white col-4"
+                                                                title="Return"><i class="fas fa-undo"></i></a>
                                                         </span>
                                                     <?php } ?>
-                                                    </td>
-                                                </tr>
+                                                </td>
+                                            </tr>
                                         <?php }
                                         mysqli_close($mysqli);
                                         ?>
                                     </tbody>
+
 
                                     <tfoot>
                                         <tr>
