@@ -40,6 +40,28 @@ if (isset($_SESSION["user_id"])) {
                             class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i
                                 class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a>
                     </div>
+                    <?php
+                    require("db.php");
+
+                    // Calculate total books
+                    $totalBooksQuery = "SELECT SUM(Quantity) AS total FROM books";
+                    $totalBooksResult = mysqli_query($mysqli, $totalBooksQuery);
+                    $totalBooks = mysqli_fetch_assoc($totalBooksResult)['total'];
+
+                    // Calculate borrowed books
+                    $borrowedBooksQuery = "SELECT COUNT(*) AS borrowed FROM borrowers WHERE Status = 'Issued'";
+                    $borrowedBooksResult = mysqli_query($mysqli, $borrowedBooksQuery);
+                    $borrowedBooks = mysqli_fetch_assoc($borrowedBooksResult)['borrowed'];
+
+                    // Calculate returned books
+                    $returnedBooksQuery = "SELECT COUNT(*) AS returned FROM borrowers WHERE Status = 'Returned'";
+                    $returnedBooksResult = mysqli_query($mysqli, $returnedBooksQuery);
+                    $returnedBooks = mysqli_fetch_assoc($returnedBooksResult)['returned'];
+
+                    // Calculate available books
+                    $availableBooks = $totalBooks - $borrowedBooks;
+                    ?>
+
                     <div class="row">
                         <div class="col-md-6 col-xl-3 mb-4">
                             <div class="card shadow border-start-primary py-2">
@@ -47,10 +69,13 @@ if (isset($_SESSION["user_id"])) {
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div class="text-uppercase text-primary fw-bold text-xs mb-1"
-                                                style="font-size: 16px;"><span>TOTAL BOOKS</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span
-                                                    style="color: var(--bs-black);font-size: 20px;font-weight: bold;">40</span>
+                                                style="font-size: 16px;">
+                                                <span>TOTAL BOOKS</span>
                                             </div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span
+                                                    style="color: var(--bs-black);font-size: 20px;font-weight: bold;">
+                                                    <?php echo $totalBooks; ?>
+                                                </span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-book fa-2x text-gray-300"></i></div>
                                     </div>
@@ -67,8 +92,9 @@ if (isset($_SESSION["user_id"])) {
                                                 <span>AVAILABLE BOOKS</span>
                                             </div>
                                             <div class="text-dark fw-bold h5 mb-0"><span
-                                                    style="color: var(--bs-black);font-size: 20px;font-weight: bold;">21</span>
-                                            </div>
+                                                    style="color: var(--bs-black);font-size: 20px;font-weight: bold;">
+                                                    <?php echo $availableBooks; ?>
+                                                </span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                                         </div>
@@ -82,10 +108,13 @@ if (isset($_SESSION["user_id"])) {
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div class="text-uppercase text-info fw-bold text-xs mb-1"
-                                                style="font-size: 16px;"><span>BORROWED BOOKS:</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span
-                                                    style="color: var(--bs-black);font-size: 20px;font-weight: bold;">05</span>
+                                                style="font-size: 16px;">
+                                                <span>BORROWED BOOKS:</span>
                                             </div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span
+                                                    style="color: var(--bs-black);font-size: 20px;font-weight: bold;">
+                                                    <?php echo $borrowedBooks; ?>
+                                                </span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-book-reader fa-2x text-gray-300"></i>
                                         </div>
@@ -99,10 +128,13 @@ if (isset($_SESSION["user_id"])) {
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div class="text-uppercase text-warning fw-bold text-xs mb-1"
-                                                style="font-size: 16px;"><span>RETURNED BOOKS</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span
-                                                    style="color: var(--bs-black);font-size: 20px;font-weight: bold;">18</span>
+                                                style="font-size: 16px;">
+                                                <span>RETURNED BOOKS</span>
                                             </div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span
+                                                    style="color: var(--bs-black);font-size: 20px;font-weight: bold;">
+                                                    <?php echo $returnedBooks; ?>
+                                                </span></div>
                                             <div class="text-dark fw-bold h5 mb-0"></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-undo fa-2x text-gray-300"></i></div>
@@ -111,13 +143,14 @@ if (isset($_SESSION["user_id"])) {
                             </div>
                         </div>
                     </div>
-                </div>
+
+
+
+                    <?php include("footer.php"); ?>
+
+                </div><a class="text-center border rounded scroll-to-top" href="#page-top"><i
+                        class="fas fa-angle-up"></i></a>
             </div>
-
-            <?php include("footer.php"); ?>
-
-        </div><a class="text-center border rounded scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-    </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/script.js"></script>
+            <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+            <script src="assets/js/script.js"></script>
 </body>
