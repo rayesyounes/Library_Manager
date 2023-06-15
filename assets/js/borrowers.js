@@ -5,14 +5,14 @@ const hide_addModal_Button = document.getElementById('hide_addModal_Button');
 
 
 addBorrowerButton.addEventListener('click', function (event) {
-    event.preventDefault(); 
+    event.preventDefault();
 
     addBorrowerModal.style.display = 'block';
 });
 
 
 hide_addModal_Button.addEventListener('click', function () {
-    addBorrowerModal.style.display = 'none'; 
+    addBorrowerModal.style.display = 'none';
 });
 
 
@@ -114,3 +114,36 @@ document.getElementById('statusFilter').addEventListener('change', function () {
         }
     });
 });
+
+
+document.getElementById('statusFilter').addEventListener('change', filterTable);
+document.getElementById('searchInput').addEventListener('input', filterTable);
+
+function filterTable() {
+    const selectedStatus = document.getElementById('statusFilter').value.toLowerCase();
+    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+    const tableRows = document.querySelectorAll('#dataTable tbody tr');
+
+    tableRows.forEach(function (row) {
+        const rowStatus = row.dataset.status.toLowerCase();
+        const bookTitle = row.cells[0].textContent.toLowerCase();
+        const userEmail = row.cells[1].textContent.toLowerCase();
+        const issueDate = row.cells[2].textContent.toLowerCase();
+        const returnDate = row.cells[3].textContent.toLowerCase();
+
+        if (
+            (selectedStatus === 'all' || selectedStatus === rowStatus) &&
+            (
+                bookTitle.includes(searchInput) ||
+                userEmail.includes(searchInput) ||
+                issueDate.includes(searchInput) ||
+                returnDate.includes(searchInput)
+            )
+        ) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}
+

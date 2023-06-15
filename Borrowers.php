@@ -67,8 +67,9 @@ if (isset($_SESSION["user_id"])) {
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="text-md-end dataTables_filter" id="dataTable_filter"><label
-                                            class="form-label"><input type="search" class="form-control form-control-sm"
+                                    <div class="text-md-end dataTables_filter" id="dataTable_filter">
+                                        <label class="form-label">
+                                            <input id="searchInput" type="search" class="form-control form-control-sm"
                                                 aria-controls="dataTable" placeholder="Search"></label></div>
                                 </div>
                             </div>
