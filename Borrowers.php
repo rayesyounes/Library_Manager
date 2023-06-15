@@ -137,13 +137,17 @@ if (isset($_SESSION["user_id"])) {
                                                                 class="fas fa-undo"></i></a>
 
                                                     <?php } elseif ($status == 'Returned') { ?>
-                                                        <a class="btn btn-secondary btn-sm text-white col-12" title="Returned"
-                                                            disabled><i class="fas fa-check-circle"></i></a>
+                                                        <span class="d-flex justify-content-between">
+                                                            <a class="btn btn-secondary btn-sm text-white col-7" title="Returned"
+                                                                disabled><i class="fas fa-check-circle"></i></a>
+                                                            <a href="update-status.php?id=<?php echo $borrowerId; ?>&Status=Not Returned"
+                                                                class="btn btn-warning btn-sm text-white col-4" title="Not Return"><i class="fas fa-undo"></i></a>
+                                                        </span>
 
                                                     <?php } elseif ($status == 'Not Returned') { ?>
                                                         <span class="d-flex justify-content-between">
-                                                            <a class="btn btn-secondary btn-sm col-7" title="Not Returned"><i
-                                                                    class="fas fa-times-circle"></i></a>
+                                                            <a class="btn btn-secondary btn-sm col-7" title="Not Returned"
+                                                                disabled><i class="fas fa-times-circle"></i></a>
                                                             <a href="update-status.php?id=<?php echo $borrowerId; ?>&Status=Returned"
                                                                 class="btn btn-warning btn-sm text-white col-4"
                                                                 title="Return"><i class="fas fa-undo"></i></a>
