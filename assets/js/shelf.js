@@ -91,3 +91,51 @@ function fetchBookData(bookId) {
             alert(error.message);
         });
 }
+
+
+// Get references to the modals
+const bookModal = document.getElementById("BookModal");
+const borrowerModal = document.getElementById("addBorrowerModal");
+
+// Get references to the buttons in the modals
+const orderButton = document.querySelector("#BookModal .modal-content .btn[name='order_book']");
+const cancelButton = document.getElementById("hide_addModal_Button");
+
+// Add click event listener to the "Order" button
+orderButton.addEventListener("click", function () {
+    // Hide the book modal
+    bookModal.style.display = "none";
+
+    // Display the add borrower modal
+    borrowerModal.style.display = "block";
+});
+
+// Add click event listener to the "Cancel" button in the add borrower modal
+cancelButton.addEventListener("click", function () {
+    // Hide the add borrower modal
+    borrowerModal.style.display = "none";
+
+    // Display the book modal
+    bookModal.style.display = "block";
+});
+
+const addBorrowerModal = document.getElementById("addBorrowerModal");
+
+orderButton.addEventListener("click", function () {
+    // Hide the book modal
+    bookModal.style.display = "none";
+
+    // Get the book ID, ISBN, and title
+    const bookID = document.getElementById("id_hidden").value;
+    const bookISBN = document.getElementById("isbn").value;
+    const bookTitle = document.getElementById("title").value;
+
+    // Fill the addBorrowerModal fields with the book ID, ISBN, and title
+    document.getElementById("book_id").value = bookID;
+    document.getElementById("book_isbn").value = bookISBN;
+    document.getElementById("book_title").value = bookTitle;
+
+    // Display the add borrower modal
+    addBorrowerModal.style.display = "block";
+});
+

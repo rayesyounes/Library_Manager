@@ -68,7 +68,7 @@ if (isset($_SESSION["user_id"])) {
                                     <div class="row justify-content-evenly">
                                         <?php
                                         $mysqli = require("db.php");
-                                        $sql = "SELECT * FROM books";
+                                        $sql = "SELECT * FROM books WHERE Quantity != 0";
                                         $result = $mysqli->query($sql);
                                         ?>
                                         <?php while ($book = $result->fetch_assoc()) {
@@ -114,7 +114,7 @@ if (isset($_SESSION["user_id"])) {
                                             <input type="hidden" name="id" id="id_hidden" value="<?php echo $id; ?>">
                                             <div class="col-4" style="width: 250px; height: 310px;">
                                                 <img title="" id="levery" style="width: 100%; height: 100%;"
-                                                    class="book-image rounded" style="" src="">
+                                                    class="book-image rounded" src="">
                                             </div>
                                             <div class="col-8">
                                                 <div class="row mb-3">
@@ -140,11 +140,70 @@ if (isset($_SESSION["user_id"])) {
                                                 <hr>
                                                 <br>
                                                 <div class="d-sm-flex justify-content-between align-items-center my-2">
-                                                    <button class="btn btn-primary btn-user w-50" type="submit"
-                                                        name="order_book">Order</button>
+                                                    <a class="btn btn-primary btn-user w-50" name="order_book">Order</a>
                                                     <a id="hide_Modal_Button"
                                                         class="btn btn-secondary btn-user w-40">Cancel</a>
                                                 </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="addBorrowerModal" class="modal">
+                                <div class="modal-content">
+                                    <div class="p-3">
+                                        <div class="text-center">
+                                            <h4 class="text-dark mb-4">Order Book</h4>
+                                        </div>
+                                        <hr>
+                                        <br>
+                                        <form class="borrower" id="add_borrower" method="post"
+                                            action="add-borrower-userview-process copy.php" novalidate>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-4">
+                                                    <input class="form-control form-control-user" type="text"
+                                                        id="user_cin" placeholder="User Cin" name="cin" value="<?php echo $user['Cin']; ?>">
+                                                </div>
+                                                <input type="hidden" name="user_id" value="<?php echo $user['ID_User']; ?>" id="user_id">
+                                                <div class="col-sm-8">
+                                                    <input class="form-control form-control-user" type="email"
+                                                        id="user_email" aria-describedby="emailHelp"
+                                                        placeholder="User Email" name="email" value="<?php echo $user['Email']; ?>" disabled>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-sm-4">
+                                                    <input class="form-control form-control-user" type="text"
+                                                        id="book_isbn" placeholder="Book ISBN" name="isbn">
+                                                </div>
+                                                <input type="hidden" name="book_id" id="book_id">
+                                                <div class="col-sm-8">
+                                                    <input class="form-control form-control-user" type="email"
+                                                        id="book_title" aria-describedby="emailHelp"
+                                                        placeholder="Book Title" name="title" disabled>
+                                                </div>
+                                            </div>
+
+                                            <div class=" mb-3">
+                                                <input class="form-control form-control-user" type="date"
+                                                    id="return_date" name="return_date">
+                                            </div>
+
+                                            <div class=" mb-3">
+                                                <select class="form-control form-control-user" type="date" id="status"
+                                                    name="status">
+                                                    <option value="Ordered">Ordered</option>
+                                                </select>
+                                            </div>
+                                            <hr>
+                                            <br>
+                                            <div class="d-sm-flex justify-content-between align-items-center my-2">
+                                                <button class="btn btn-primary btn-user w-50" type="submit"
+                                                    name="add">Order</button>
+                                                <a id="hide_addModal_Button"
+                                                    class="btn btn-secondary btn-user w-40">Cancel</a>
                                             </div>
                                         </form>
                                     </div>
@@ -179,6 +238,5 @@ if (isset($_SESSION["user_id"])) {
     <script src="assets/bootstrap/js/bootstrap.min.js" defer></script>
     <script src="assets/js/script.js" defer></script>
     <script src="assets/js/shelf.js" defer></script>
-
 
 </body>
