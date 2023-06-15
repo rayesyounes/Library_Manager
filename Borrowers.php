@@ -88,6 +88,14 @@ if (isset($_SESSION["user_id"])) {
                                         while ($borrower = $result->fetch_assoc()) {
                                             $borrowerId = $borrower['ID_Borrower'];
                                             $status = $borrower['Status'];
+
+                                            // Check if the status is 'Issued' and the return date has passed the current date
+                                            if ($status == 'Issued' && strtotime($borrower['Return_Date']) < strtotime(date('Y-m-d'))) {
+                                                // Update the status to 'Not Returned'
+                                                $updateStatus = "UPDATE borrowers SET Status = 'Not Returned' WHERE ID_Borrower = $borrowerId";
+                                                $mysqli->query($updateStatus);
+                                                $status = 'Not Returned'; // Update the status variable
+                                            }
                                             ?>
                                             <tr>
                                                 <td class="align-middle">
@@ -138,10 +146,12 @@ if (isset($_SESSION["user_id"])) {
 
                                                     <?php } elseif ($status == 'Returned') { ?>
                                                         <span class="d-flex justify-content-between">
-                                                            <a class="btn btn-secondary btn-sm text-white col-7" title="Returned"
-                                                                disabled><i class="fas fa-check-circle"></i></a>
+                                                            <a class="btn btn-secondary btn-sm text-white col-7"
+                                                                title="Returned" disabled><i
+                                                                    class="fas fa-check-circle"></i></a>
                                                             <a href="update-status.php?id=<?php echo $borrowerId; ?>&Status=Not Returned"
-                                                                    class="btn btn-warning btn-sm text-white col-4" title="Not Return"><i class="fas fa-undo"></i></a>
+                                                                class="btn btn-warning btn-sm text-white col-4"
+                                                                title="Not Return"><i class="fas fa-undo"></i></a>
                                                         </span>
 
                                                     <?php } elseif ($status == 'Not Returned') { ?>
@@ -159,6 +169,7 @@ if (isset($_SESSION["user_id"])) {
                                         mysqli_close($mysqli);
                                         ?>
                                     </tbody>
+
 
 
                                     <tfoot>
