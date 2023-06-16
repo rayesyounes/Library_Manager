@@ -163,10 +163,10 @@ if (isset($_SESSION["user_id"])) {
                                             <div class="row mb-3">
                                                 <div class="col-sm-4">
                                                     <input class="form-control form-control-user" type="text"
-                                                        id="user_cin" placeholder="User Cin" name="cin" value="<?php echo $user['Cin']; ?>">
+                                                        id="user_cin" placeholder="User Cin" name="cin" hidden value="<?php echo $user['Cin']; ?>">
                                                 </div>
                                                 <input type="hidden" name="user_id" value="<?php echo $user['ID_User']; ?>" id="user_id">
-                                                <div class="col-sm-8">
+                                                <div class="col-sm-12">
                                                     <input class="form-control form-control-user" type="email"
                                                         id="user_email" aria-describedby="emailHelp"
                                                         placeholder="User Email" name="email" value="<?php echo $user['Email']; ?>" disabled>
@@ -176,10 +176,10 @@ if (isset($_SESSION["user_id"])) {
                                             <div class="row mb-3">
                                                 <div class="col-sm-4">
                                                     <input class="form-control form-control-user" type="text"
-                                                        id="book_isbn" placeholder="Book ISBN" name="isbn">
+                                                        id="book_isbn" placeholder="Book ISBN" name="isbn" hidden>
                                                 </div>
                                                 <input type="hidden" name="book_id" id="book_id">
-                                                <div class="col-sm-8">
+                                                <div class="col-sm-12">
                                                     <input class="form-control form-control-user" type="email"
                                                         id="book_title" aria-describedby="emailHelp"
                                                         placeholder="Book Title" name="title" disabled>
@@ -191,7 +191,7 @@ if (isset($_SESSION["user_id"])) {
                                                     id="return_date" name="return_date">
                                             </div>
 
-                                            <div class=" mb-3">
+                                            <div class=" mb-3" hidden>
                                                 <select class="form-control form-control-user" type="date" id="status"
                                                     name="status">
                                                     <option value="Ordered">Ordered</option>
@@ -235,6 +235,7 @@ if (isset($_SESSION["user_id"])) {
 
         </div><a class="text-center border rounded scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
     <script src="assets/bootstrap/js/bootstrap.min.js" defer></script>
     <script src="assets/js/script.js" defer></script>
     <script src="assets/js/shelf.js" defer></script>

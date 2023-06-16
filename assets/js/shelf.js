@@ -139,3 +139,14 @@ orderButton.addEventListener("click", function () {
     addBorrowerModal.style.display = "block";
 });
 
+
+let validation = new JustValidate("#add_borrower");
+validation.addField("#return_date", [
+    {
+        rule: "required"
+    }
+])
+    .onSuccess((event) => {
+        document.getElementById("add_borrower").submit();
+    });
+

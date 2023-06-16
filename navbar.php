@@ -18,23 +18,12 @@ if (isset($user) && !isset($_SESSION['welcome_message'])) {
         <div class="container-fluid"><button title="#" class="btn btn-link d-md-none rounded-circle me-3"
                 id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
             <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">
-                <div class="input-group"><input class="bg-light form-control border-0 small" type="text"
+                <div class="input-group"><input class="bg-light form-control border-0 small" disabled type="text"
                         placeholder="Search for ..."><button title="#" class="btn btn-primary py-0" type="button"><i
                             class="fas fa-search"></i></button></div>
             </form>
             <ul class="navbar-nav flex-nowrap ms-auto">
-                <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false"
-                        data-bs-toggle="dropdown" href="#"><i class="fas fa-search"></i></a>
-                    <div class="dropdown-menu dropdown-menu-end p-3 animated--grow-in" aria-labelledby="searchDropdown">
-                        <form class="me-auto navbar-search w-100">
-                            <div class="input-group"><input class="bg-light form-control border-0 small" type="text"
-                                    placeholder="Search for ...">
-                                <div class="input-group-append"><button title="#" class="btn btn-primary py-0"
-                                        type="button"><i class="fas fa-search"></i></button></div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
+                
                 <li class="nav-item dropdown no-arrow mx-1">
                     <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false"
                             data-bs-toggle="dropdown" href="#"><span class="badge bg-danger badge-counter">3+</span><i
