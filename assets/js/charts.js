@@ -30,6 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         return item.name;
                     }),
                 },
+                legend: {
+                    show: false, // Hide the legend text
+                },
                 colors: colors.slice(0, chartData.length), // Use a subset of colors based on the number of users
             };
 
@@ -79,6 +82,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     type: 'category',
                     categories: categories,
                 },
+                legend: {
+                    show: false, // Hide the legend text
+                }
             };
 
             var chart = new ApexCharts(document.querySelector('#chart_2'), options);
@@ -120,11 +126,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 series: seriesData,
                 xaxis: {
                     categories: categories
-                },
-                yaxis: {
-                    title: {
-                        text: 'Number of Borrowers'
-                    }
                 },
                 dataLabels: {
                     enabled: false

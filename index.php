@@ -152,7 +152,7 @@ if (isset($_SESSION["user_id"])) {
                                 </div>
                             </div>
                         </div>
-                    </div>s
+                    </div>
                     <div class="row">
                         <div class="col-lg-6 col-xl-7">
                             <div class="card shadow mb-4">
