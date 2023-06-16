@@ -220,7 +220,6 @@ if (isset($_SESSION["user_id"])) {
                                         $result = $mysqli->query($sql);
                                         $row = $result->fetch_assoc();
                                         $totalBooks = $row['total'];
-
                                         echo "Showing 1 to " . $totalBooks . " of " . $totalBooks;
                                         ?>
                                     </p>
