@@ -48,20 +48,20 @@ if (isset($_SESSION["user_id"])) {
                                 <div class="col-md-6 text-nowrap">
                                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
                                         <label class="form-label">Show&nbsp;
-                                            <select class="d-inline-block form-select form-select-sm">
-                                                <option value="10" selected="">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select>
-                                            
                                             <select id="statusFilter"
                                                 class="filter d-inline-block form-select form-select-sm">
-                                                <option value="all" selected="">All</option>
+                                                <option value="all" selected>All</option>
                                                 <option value="ordered">Ordered</option>
                                                 <option value="issued">Issued</option>
                                                 <option value="returned">Returned</option>
                                                 <option value="not returned">Not Returned</option>
+                                            </select>
+                                            <select id="showEntriesSelect" name="showEntriesSelect" class="d-inline-block form-select form-select-sm">
+                                                <option value="all" selected>All</option>
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
                                             </select>
                                             &nbsp;</label>
                                     </div>
@@ -154,7 +154,6 @@ if (isset($_SESSION["user_id"])) {
                                                         <a href="update-status.php?id=<?php echo $borrowerId; ?>&Status=Returned"
                                                             class="btn btn-warning btn-sm text-white col-12" title="Return"><i
                                                                 class="fas fa-undo"></i></a>
-
                                                     <?php } elseif ($status == 'Returned') { ?>
                                                         <span class="d-flex justify-content-between">
                                                             <a class="btn btn-secondary btn-sm text-white col-12"
@@ -164,7 +163,6 @@ if (isset($_SESSION["user_id"])) {
                                                                 class="btn btn-warning btn-sm text-white col-4"
                                                                 title="Not Return"><i class="fas fa-undo"></i></a> -->
                                                         </span>
-
                                                     <?php } elseif ($status == 'Not Returned') { ?>
                                                         <span class="d-flex justify-content-between">
                                                             <a class="btn btn-secondary btn-sm col-7" title="Not Returned"
@@ -205,7 +203,7 @@ if (isset($_SESSION["user_id"])) {
                                         $row = $result->fetch_assoc();
                                         $totalborrowers = $row['total'];
 
-                                        echo "Showing 1 to " . $totalborrowers . " of " . $totalborrowers;
+                                        echo "Showing 1 to " . "<span id='msg'>$totalborrowers</span>" . " of " . $totalborrowers;
                                         ?>
                                     </p>
                                 </div>

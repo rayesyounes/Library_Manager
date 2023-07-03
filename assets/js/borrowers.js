@@ -147,3 +147,30 @@ function filterTable() {
     });
 }
 
+const showEntriesSelect = document.getElementById("showEntriesSelect");
+const borrowersTable = document.querySelector("tbody");
+const msgSpan = document.getElementById("msg");
+
+function updateTable() {
+    const selectedValue = showEntriesSelect.value;
+
+    let numRowsToShow;
+    if (selectedValue === "all") {
+        numRowsToShow = borrowersTable.getElementsByTagName("tr").length;
+    } else {
+        numRowsToShow = parseInt(selectedValue);
+    }
+
+    const tableRows = borrowersTable.getElementsByTagName("tr");
+    for (let i = 0; i < tableRows.length; i++) {
+        if (i < numRowsToShow) {
+            tableRows[i].style.display = "table-row";
+        } else {
+            tableRows[i].style.display = "none";
+        }
+    }
+
+    msgSpan.textContent = numRowsToShow.toString();
+}
+
+showEntriesSelect.addEventListener("change", updateTable);
