@@ -109,9 +109,10 @@ if (isset($_SESSION["user_id"])) {
                             <div class="row">
                                 <div class="col-md-6 text-nowrap">
                                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                        <label class="form-label">Show&nbsp;<select
-                                                class="d-inline-block form-select form-select-sm">
-                                                <option value="10" selected="">10</option>
+                                        <label class="form-label">Show&nbsp;
+                                            <select id="showEntriesSelect" class="d-inline-block form-select form-select-sm">
+                                                <option value="all" selected>All</option>
+                                                <option value="10">10</option>
                                                 <option value="25">25</option>
                                                 <option value="50">50</option>
                                                 <option value="100">100</option>
@@ -168,7 +169,6 @@ if (isset($_SESSION["user_id"])) {
                                                         href="delete-user-process.php?id=<?php echo $user['ID_User']; ?>">Delete</a>
                                                 </td>
                                             </tr>
-
                                         <?php }
                                         mysqli_close($mysqli);
                                         ?>
@@ -247,8 +247,6 @@ if (isset($_SESSION["user_id"])) {
                                 </div>
                             </div>
 
-
-
                             <div class="row">
                                 <div class="col-md-6 align-self-center">
                                     <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">
@@ -259,7 +257,7 @@ if (isset($_SESSION["user_id"])) {
                                         $row = $result->fetch_assoc();
                                         $totalUsers = $row['total'];
 
-                                        echo "Showing 1 to " . $totalUsers . " of " . $totalUsers;
+                                        echo "Showing 1 to " . "<span id='msg'>$totalUsers</span>" . " of " . $totalUsers;
                                         ?>
                                     </p>
                                 </div>
