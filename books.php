@@ -97,9 +97,10 @@ if (isset($_SESSION["user_id"])) {
                             <div class="row">
                                 <div class="col-md-6 text-nowrap">
                                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                        <label class="form-label">Show&nbsp;<select
-                                                class="d-inline-block form-select form-select-sm">
-                                                <option value="10" selected="">10</option>
+                                        <label class="form-label">Show&nbsp;
+                                            <select id="showEntriesSelect" class="d-inline-block form-select form-select-sm">
+                                                <option value="all" selected>All</option>
+                                                <option value="10">10</option>
                                                 <option value="25">25</option>
                                                 <option value="50">50</option>
                                                 <option value="100">100</option>
@@ -241,7 +242,7 @@ if (isset($_SESSION["user_id"])) {
                                         $row = $result->fetch_assoc();
                                         $totalBooks = $row['total'];
 
-                                        echo "Showing 1 to " . $totalBooks . " of " . $totalBooks;
+                                        echo "Showing 1 to " . "<span id='msg'>$totalBooks</span>" . " of " . $totalBooks;
                                         ?>
                                     </p>
                                 </div>
