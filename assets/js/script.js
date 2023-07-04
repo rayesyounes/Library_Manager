@@ -71,7 +71,7 @@
       // Check if user is scrolling up
       if (scrollDistance > 200) {
         scrollToTopButtons.forEach(function (button) {
-          button.style.display = 'block';
+          button.style.display = 'flex';
         });
       } else {
         scrollToTopButtons.forEach(function (button) {

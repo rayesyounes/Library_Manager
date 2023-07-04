@@ -169,7 +169,10 @@ if (isset($_SESSION["user_id"])) {
                     <?php include("footer.php"); ?>
 
                 </div>
-            </div><a class="text-center border rounded scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+            </div>
+            <a class="btn btn-sm scroll-to-top border-0 align-items-center justify-content-center" href="#page-top">
+                <i class="fas fa-lg fa-arrow-circle-up"></i>
+            </a>
         </div>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/profile.js" defer></script>

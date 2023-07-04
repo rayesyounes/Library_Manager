@@ -6,14 +6,23 @@
     z-index: -1;
 }
 
-.fa-angle-up{
-    padding: 8px 50px;
+.fa-angle-up {
+    padding: 8px;
 }
 
 .scroll-to-top {
-    width: auto;
-    height: auto;
-    margin-right: 6px;
+    top: 3vh;
+    padding: 5px;
+    margin-right: 42%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50% !important;
+}
+
+footer {
+    margin-top: 3vh;
 }
 
 .sidebar div {

@@ -110,7 +110,8 @@ if (isset($_SESSION["user_id"])) {
                                 <div class="col-md-6 text-nowrap">
                                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
                                         <label class="form-label">Show&nbsp;
-                                            <select id="showEntriesSelect" class="d-inline-block form-select form-select-sm">
+                                            <select id="showEntriesSelect"
+                                                class="d-inline-block form-select form-select-sm">
                                                 <option value="all" selected>All</option>
                                                 <option value="10">10</option>
                                                 <option value="25">25</option>
@@ -122,7 +123,8 @@ if (isset($_SESSION["user_id"])) {
                                 <div class="col-md-6">
                                     <div class="text-md-end dataTables_filter" id="dataTable_filter"><label
                                             class="form-label"><input type="search" class="form-control form-control-sm"
-                                                aria-controls="dataTable" placeholder="Search" id="search_userInput"></label></div>
+                                                aria-controls="dataTable" placeholder="Search"
+                                                id="search_userInput"></label></div>
                                 </div>
                             </div>
                             <div class="table-responsive table mt-2" id="dataTable" role="grid"
@@ -143,7 +145,8 @@ if (isset($_SESSION["user_id"])) {
                                         $sql = "SELECT * FROM users WHERE Is_Admin = 0";
                                         $result = $mysqli->query($sql);
                                         ?>
-                                        <?php while ($user = $result->fetch_assoc()) {; ?>
+                                        <?php while ($user = $result->fetch_assoc()) {
+                                            ; ?>
                                             <tr>
                                                 <td>
                                                     <img title="" class="rounded-circle me-2" width="30" height="30"
@@ -162,11 +165,14 @@ if (isset($_SESSION["user_id"])) {
                                                 <td>
                                                     <button id="<?php echo $user['ID_User']; ?>"
                                                         class="btn btn-warning btn-sm d-none d-sm-inline-block w-100 updateUserButton text-white"
-                                                        type="button" title="Edit"><i class="fas fa-user-edit text-white"></i></button>
+                                                        type="button" title="Edit"><i
+                                                            class="fas fa-user-edit text-white"></i></button>
                                                 </td>
                                                 <td>
-                                                    <a id="" class="btn btn-danger btn-sm d-none d-sm-inline-block w-100" title="Delete"
-                                                        href="delete-user-process.php?id=<?php echo $user['ID_User']; ?>"><i class="fas fa-trash text-white"></i></a>
+                                                    <a id="" class="btn btn-danger btn-sm d-none d-sm-inline-block w-100"
+                                                        title="Delete"
+                                                        href="delete-user-process.php?id=<?php echo $user['ID_User']; ?>"><i
+                                                            class="fas fa-trash text-white"></i></a>
                                                 </td>
                                             </tr>
                                         <?php }
@@ -261,6 +267,10 @@ if (isset($_SESSION["user_id"])) {
                                         ?>
                                     </p>
                                 </div>
+                                <!-- <div class="col-md-6 align-self-center d-flex justify-content-end">
+                                    <a class="btn btn-sm btn-primary text-center align-items-center mx-2"
+                                        title="Back to top" href="#page-top"><i class="rounded fas fa-angle-up"></i></a>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -270,7 +280,9 @@ if (isset($_SESSION["user_id"])) {
             <?php include("footer.php"); ?>
 
         </div>
-        <a class="text-center border rounded scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+        <a class="btn btn-sm scroll-to-top border-0 align-items-center justify-content-center" href="#page-top">
+            <i class="fas fa-lg fa-arrow-circle-up"></i>
+        </a>
     </div>
     <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
     <script src="assets/bootstrap/js/bootstrap.min.js" defer></script>

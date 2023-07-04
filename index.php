@@ -240,8 +240,8 @@ if (isset($_SESSION["user_id"])) {
             <?php include("footer.php"); ?>
         </div>
     </div>
-    <a class="text-center border rounded scroll-to-top" href="#page-top">
-        <i class="fas fa-angle-up"></i>
+    <a class="btn btn-sm scroll-to-top border-0 align-items-center justify-content-center" href="#page-top">
+        <i class="fas fa-lg fa-arrow-circle-up"></i>
     </a>
     <script src="assets/bootstrap/js/bootstrap.min.js" defer></script>
     <script src="assets/apexcharts/dist/apexcharts.js" defer></script>

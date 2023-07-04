@@ -48,7 +48,8 @@ if (isset($_SESSION["user_id"])) {
                                 <div class="col-md-6 text-nowrap">
                                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
                                         <label class="form-label">Show&nbsp;
-                                            <select id="showEntriesSelect" name="showEntriesSelect" class="d-inline-block form-select form-select-sm">
+                                            <select id="showEntriesSelect" name="showEntriesSelect"
+                                                class="d-inline-block form-select form-select-sm">
                                                 <option value="all" selected>All</option>
                                                 <option value="10">10</option>
                                                 <option value="25">25</option>
@@ -70,7 +71,8 @@ if (isset($_SESSION["user_id"])) {
                                     <div class="text-md-end dataTables_filter" id="dataTable_filter">
                                         <label class="form-label">
                                             <input id="searchInput" type="search" class="form-control form-control-sm"
-                                                aria-controls="dataTable" placeholder="Search"></label></div>
+                                                aria-controls="dataTable" placeholder="Search"></label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="table-responsive table mt-2" id="dataTable" role="grid"
@@ -207,6 +209,10 @@ if (isset($_SESSION["user_id"])) {
                                         ?>
                                     </p>
                                 </div>
+                                <!-- <div class="col-md-6 align-self-center d-flex justify-content-end">
+                                    <a class="btn btn-sm btn-primary text-center align-items-center mx-2"
+                                        title="Back to top" href="#page-top"><i class="rounded fas fa-angle-up"></i></a>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -278,7 +284,10 @@ if (isset($_SESSION["user_id"])) {
 
             <?php include("footer.php"); ?>
 
-        </div><a class="text-center border rounded scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+        </div>
+        <a class="btn btn-sm scroll-to-top border-0 align-items-center justify-content-center" href="#page-top">
+            <i class="fas fa-lg fa-arrow-circle-up"></i> 
+        </a>
     </div>
     <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
     <script src="assets/bootstrap/js/bootstrap.min.js" defer></script>

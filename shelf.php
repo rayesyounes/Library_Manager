@@ -36,7 +36,8 @@ if (isset($_SESSION["user_id"])) {
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-2">
                         <h3 class="text-dark mb-4">Shelf</h3>
-                        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-plus-circle fa-sm text-white-50"></i> Order Book</a>
+                        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i
+                                class="fas fa-plus-circle fa-sm text-white-50"></i> Order Book</a>
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
@@ -47,7 +48,8 @@ if (isset($_SESSION["user_id"])) {
                                 <div class="col-md-6 text-nowrap">
                                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
                                         <label class="form-label">Show&nbsp;
-                                            <select id="showEntriesSelect" class="d-inline-block form-select form-select-sm">
+                                            <select id="showEntriesSelect"
+                                                class="d-inline-block form-select form-select-sm">
                                                 <option value="all" selected>All</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -164,13 +166,16 @@ if (isset($_SESSION["user_id"])) {
                                             <div class="row mb-3">
                                                 <div class="col-sm-4">
                                                     <input class="form-control form-control-user" type="text"
-                                                        id="user_cin" placeholder="User Cin" name="cin" hidden value="<?php echo $user['Cin']; ?>">
+                                                        id="user_cin" placeholder="User Cin" name="cin" hidden
+                                                        value="<?php echo $user['Cin']; ?>">
                                                 </div>
-                                                <input type="hidden" name="user_id" value="<?php echo $user['ID_User']; ?>" id="user_id">
+                                                <input type="hidden" name="user_id"
+                                                    value="<?php echo $user['ID_User']; ?>" id="user_id">
                                                 <div class="col-sm-12">
                                                     <input class="form-control form-control-user" type="email"
                                                         id="user_email" aria-describedby="emailHelp"
-                                                        placeholder="User Email" name="email" value="<?php echo $user['Email']; ?>" disabled>
+                                                        placeholder="User Email" name="email"
+                                                        value="<?php echo $user['Email']; ?>" disabled>
                                                 </div>
                                             </div>
 
@@ -225,6 +230,10 @@ if (isset($_SESSION["user_id"])) {
                                         ?>
                                     </p>
                                 </div>
+                                <!-- <div class="col-md-6 align-self-center d-flex justify-content-end">
+                                    <a class="btn btn-sm btn-primary text-center align-items-center mx-2"
+                                        title="Back to top" href="#page-top"><i class="rounded fas fa-angle-up"></i></a>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -233,7 +242,10 @@ if (isset($_SESSION["user_id"])) {
 
             <?php include("footer.php"); ?>
 
-        </div><a class="text-center border rounded scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+        </div>
+        <a class="btn btn-sm scroll-to-top border-0 align-items-center justify-content-center" href="#page-top">
+            <i class="fas fa-lg fa-arrow-circle-up"></i>
+        </a>
     </div>
     <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
     <script src="assets/bootstrap/js/bootstrap.min.js" defer></script>
