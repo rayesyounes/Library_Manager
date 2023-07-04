@@ -38,7 +38,7 @@ if (isset($_SESSION["user_id"])) {
                     <div class="d-sm-flex justify-content-between align-items-center mb-2">
                         <h3 class="text-dark mb-4">Books</h3>
                         <a id="addBookButton" class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button"
-                            href="#"><i class="fas fa-plus-circle"></i> Add Book</a>
+                            href="#"><i class="fas fa-plus-circle fa-sm text-white-50"></i> Add Book</a>
                     </div>
 
                     <div id="addBookModal" class="modal">
@@ -150,12 +150,12 @@ if (isset($_SESSION["user_id"])) {
                                                 </td>
                                                 <td class="align-middle">
                                                     <button id="<?php echo $book['ID_Book']; ?>"
-                                                        class="btn btn-warning btn-sm d-none d-sm-inline-block w-100 updateBookButton"
-                                                        type="button">Edit</button>
+                                                        class="btn btn-warning d-none d-sm-inline-block w-100 updateBookButton"
+                                                        type="button" title="Edit"><i class="fas fa-pen-square text-white"></i></button>
                                                 </td>
                                                 <td class="align-middle">
-                                                    <a id="" class="btn btn-danger btn-sm d-none d-sm-inline-block w-100"
-                                                        href="delete-book-process.php?id=<?php echo $book['ID_Book']; ?>">Delete</a>
+                                                    <a id="" class="btn btn-danger d-none d-sm-inline-block w-100" title="Delete"
+                                                        href="delete-book-process.php?id=<?php echo $book['ID_Book']; ?>"><i class="fas fa-trash text-white"></i></a>
                                                 </td>
                                             </tr>
 

@@ -38,7 +38,7 @@ if (isset($_SESSION["user_id"])) {
                     <div class="d-sm-flex justify-content-between align-items-center mb-2">
                         <h3 class="text-dark mb-4">Users</h3>
                         <a id="addUserButton" class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button"
-                            href="#"><i class="fas fa-plus-circle"></i> Add User</a>
+                            href="#"><i class="fas fa-plus-circle fa-sm text-white-50"></i> Add User</a>
                     </div>
 
                     <div id="addUserModal" class="modal">
@@ -161,12 +161,12 @@ if (isset($_SESSION["user_id"])) {
                                                 </td>
                                                 <td>
                                                     <button id="<?php echo $user['ID_User']; ?>"
-                                                        class="btn btn-warning btn-sm d-none d-sm-inline-block w-100 updateUserButton"
-                                                        type="button">Edit</button>
+                                                        class="btn btn-warning btn-sm d-none d-sm-inline-block w-100 updateUserButton text-white"
+                                                        type="button" title="Edit"><i class="fas fa-user-edit text-white"></i></button>
                                                 </td>
                                                 <td>
-                                                    <a id="" class="btn btn-danger btn-sm d-none d-sm-inline-block w-100"
-                                                        href="delete-user-process.php?id=<?php echo $user['ID_User']; ?>">Delete</a>
+                                                    <a id="" class="btn btn-danger btn-sm d-none d-sm-inline-block w-100" title="Delete"
+                                                        href="delete-user-process.php?id=<?php echo $user['ID_User']; ?>"><i class="fas fa-trash text-white"></i></a>
                                                 </td>
                                             </tr>
                                         <?php }

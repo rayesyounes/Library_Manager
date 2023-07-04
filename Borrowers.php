@@ -37,7 +37,7 @@ if (isset($_SESSION["user_id"])) {
                     <div class="d-sm-flex justify-content-between align-items-center mb-2">
                         <h3 class="text-dark mb-4">Borrowers</h3>
                         <a id="addBorrowerButton" class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button"
-                            href="#"><i class="fas fa-plus-circle"></i> Add Borrower</a>
+                            href="#"><i class="fas fa-plus-circle fa-sm text-white-50"></i> Add Borrower</a>
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
