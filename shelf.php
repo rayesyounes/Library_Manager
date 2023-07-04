@@ -36,7 +36,7 @@ if (isset($_SESSION["user_id"])) {
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-2">
                         <h3 class="text-dark mb-4">Shelf</h3>
-                        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#">Order Book</a>
+                        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-plus-circle"></i> Order Book</a>
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
@@ -46,10 +46,11 @@ if (isset($_SESSION["user_id"])) {
                             <div class="row">
                                 <div class="col-md-6 text-nowrap">
                                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                        <label class="form-label">Show&nbsp;<select
-                                                class="d-inline-block form-select form-select-sm">
-                                                <option value="10" selected="">10</option>
-                                                <option value="25">25</option>
+                                        <label class="form-label">Show&nbsp;
+                                            <select id="showEntriesSelect" class="d-inline-block form-select form-select-sm">
+                                                <option value="all" selected>All</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
                                                 <option value="50">50</option>
                                                 <option value="100">100</option>
                                             </select>&nbsp;</label>
@@ -63,8 +64,8 @@ if (isset($_SESSION["user_id"])) {
                                 </div>
                             </div>
                             <br>
-                            <section>
-                                <div class="container-fluid">
+                            <section id="bookSection">
+                                <div class="container-fluid p-0">
                                     <div class="row justify-content-evenly">
                                         <?php
                                         $mysqli = require("db.php");
@@ -73,7 +74,7 @@ if (isset($_SESSION["user_id"])) {
                                         ?>
                                         <?php while ($book = $result->fetch_assoc()) {
                                             ; ?>
-                                            <div class="col-md-5 col-lg-2 text-center p-3">
+                                            <div class="book col-md-5 col-lg-2 text-center p-3">
                                                 <input type="hidden" value="<?php echo $book['ID_Book']; ?>">
                                                 <input type="hidden" value="<?php echo $book['Author']; ?>">
                                                 <input type="hidden" value="<?php echo $book['ISBN']; ?>">
@@ -220,7 +221,7 @@ if (isset($_SESSION["user_id"])) {
                                         $result = $mysqli->query($sql);
                                         $row = $result->fetch_assoc();
                                         $totalBooks = $row['total'];
-                                        echo "Showing 1 to " . $totalBooks . " of " . $totalBooks;
+                                        echo "Showing 1 to " . "<span id='msg'>$totalBooks</span>" . " of " . $totalBooks;
                                         ?>
                                     </p>
                                 </div>

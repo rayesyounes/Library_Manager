@@ -150,3 +150,19 @@ validation.addField("#return_date", [
         document.getElementById("add_borrower").submit();
     });
 
+
+const showEntriesSelect = document.getElementById("showEntriesSelect");
+showEntriesSelect.addEventListener("change", function () {
+
+    const selectedValue = this.value;
+
+    const bookElements = document.querySelectorAll("#bookSection .book");
+
+    for (let i = 0; i < bookElements.length; i++) {
+        if (selectedValue === "all" || i < selectedValue) {
+            bookElements[i].style.display = "block";
+        } else {
+            bookElements[i].style.display = "none";
+        }
+    }
+});

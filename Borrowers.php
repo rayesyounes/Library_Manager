@@ -37,7 +37,7 @@ if (isset($_SESSION["user_id"])) {
                     <div class="d-sm-flex justify-content-between align-items-center mb-2">
                         <h3 class="text-dark mb-4">Borrowers</h3>
                         <a id="addBorrowerButton" class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button"
-                            href="#">Add Borrower</a>
+                            href="#"><i class="fas fa-plus-circle"></i> Add Borrower</a>
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
@@ -48,6 +48,13 @@ if (isset($_SESSION["user_id"])) {
                                 <div class="col-md-6 text-nowrap">
                                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
                                         <label class="form-label">Show&nbsp;
+                                            <select id="showEntriesSelect" name="showEntriesSelect" class="d-inline-block form-select form-select-sm">
+                                                <option value="all" selected>All</option>
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select>
                                             <select id="statusFilter"
                                                 class="filter d-inline-block form-select form-select-sm">
                                                 <option value="all" selected>All</option>
@@ -55,13 +62,6 @@ if (isset($_SESSION["user_id"])) {
                                                 <option value="issued">Issued</option>
                                                 <option value="returned">Returned</option>
                                                 <option value="not returned">Not Returned</option>
-                                            </select>
-                                            <select id="showEntriesSelect" name="showEntriesSelect" class="d-inline-block form-select form-select-sm">
-                                                <option value="all" selected>All</option>
-                                                <option value="10">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
                                             </select>
                                             &nbsp;</label>
                                     </div>
