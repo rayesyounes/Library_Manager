@@ -51,35 +51,35 @@ if (isset($_SESSION["user_id"])) {
                                 <br>
                                 <form class="user" id="add_user" method="post" action="add-user-process.php" novalidate>
                                     <input type="hidden" name="avatar" value="assets/img/avatars/profile-default.png">
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input class="form-control form-control-user" type="text"
+                                            <input class="form-control" type="text"
                                                 id="add_first_name" placeholder="First Name" name="first_name">
                                         </div>
                                         <div class="col-sm-6">
-                                            <input class="form-control form-control-user" type="text" id="add_last_name"
+                                            <input class="form-control" type="text" id="add_last_name"
                                                 placeholder="Last Name" name="last_name">
                                         </div>
                                     </div>
-                                    <div class="row mb-3">
+                                    <div class="row mb-4">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input class="form-control form-control-user" type="text" id="add_cin"
+                                            <input class="form-control" type="text" id="add_cin"
                                                 placeholder="Cin" name="cin">
                                         </div>
                                         <div class="col-sm-6">
-                                            <input class="form-control form-control-user" type="text" id="add_phone"
+                                            <input class="form-control" type="text" id="add_phone"
                                                 placeholder="Phone number" name="phone">
                                         </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <input class="form-control form-control-user" type="email" id="add_email"
+                                    <div class="mb-4">
+                                        <input class="form-control" type="email" id="add_email"
                                             aria-describedby="emailHelp" placeholder="Email" name="email">
                                     </div>
-                                    <div class=" mb-3">
-                                        <input class="form-control form-control-user" type="password" id="add_password"
+                                    <div class=" mb-4">
+                                        <input class="form-control" type="password" id="add_password"
                                             placeholder="Password" name="password">
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="mb-4">
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" id="add_formCheck"
                                                 name="formCheck">
@@ -91,9 +91,9 @@ if (isset($_SESSION["user_id"])) {
                                     <hr>
                                     <br>
                                     <div class="d-sm-flex justify-content-between align-items-center my-2">
-                                        <button class="btn btn-primary btn-user w-50" type="submit" name="add">add
+                                        <button class="btn btn-primary w-50" type="submit" name="add">add
                                             user</button>
-                                        <a id="hide_addModal_Button" class="btn btn-secondary btn-user w-40">Cancel</a>
+                                        <a id="hide_addModal_Button" class="btn btn-secondary w-40">Cancel</a>
                                     </div>
                                 </form>
                             </div>
@@ -204,34 +204,34 @@ if (isset($_SESSION["user_id"])) {
                                         <form class="user" id="update_user" method="post"
                                             action="update-user-process.php" novalidate>
                                             <input type="hidden" name="id" id="id_hidden" value="<?php echo $id; ?>">
-                                            <div class="row mb-3">
+                                            <div class="row mb-4">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input class="form-control form-control-user" type="text"
+                                                    <input class="form-control" type="text"
                                                         id="update_first_name" placeholder="First Name"
                                                         name="first_name">
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <input class="form-control form-control-user" type="text"
+                                                    <input class="form-control" type="text"
                                                         id="update_last_name" placeholder="Last Name" name="last_name">
                                                 </div>
                                             </div>
-                                            <div class="row mb-3">
+                                            <div class="row mb-4">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input class="form-control form-control-user" type="text"
+                                                    <input class="form-control" type="text"
                                                         id="update_cin" placeholder="Cin" name="cin">
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <input class="form-control form-control-user" type="text"
+                                                    <input class="form-control" type="text"
                                                         id="update_phone" placeholder="Phone number" name="phone">
                                                 </div>
                                             </div>
-                                            <div class="mb-3">
-                                                <input class="form-control form-control-user" type="email"
+                                            <div class="mb-4">
+                                                <input class="form-control" type="email"
                                                     id="update_email" aria-describedby="emailHelp" placeholder="Email"
                                                     name="email">
                                             </div>
                                             <br>
-                                            <div class="mb-3">
+                                            <div class="mb-4">
                                                 <div class="form-check form-switch">
                                                     <input class="form-check-input" type="checkbox"
                                                         id="update_formCheck" name="formCheck">
@@ -243,10 +243,10 @@ if (isset($_SESSION["user_id"])) {
                                             <hr>
                                             <br>
                                             <div class="d-sm-flex justify-content-between align-items-center my-2">
-                                                <button class="btn btn-primary btn-user w-50" type="submit"
+                                                <button class="btn btn-primary w-50" type="submit"
                                                     name="update">Update</button>
                                                 <a id="hide_updateModal_Button"
-                                                    class="btn btn-secondary btn-user w-40">Cancel</a>
+                                                    class="btn btn-secondary w-40">Cancel</a>
                                             </div>
                                         </form>
                                     </div>

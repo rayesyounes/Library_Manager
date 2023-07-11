@@ -11,7 +11,7 @@
     }
 
     ::-webkit-scrollbar-thumb {
-        background: rgb(216, 218, 228);
+        background: rgb(67, 105, 215);
         /* Set the color of the scrollbar */
     }
 

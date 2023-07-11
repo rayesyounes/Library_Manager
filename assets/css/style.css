@@ -32,20 +32,21 @@ footer {
 }
 
 .scale-on-hover {
-    transition: transform 0.3s ease;
     -webkit-transition: transform 0.3s ease;
     -moz-transition: transform 0.3s ease;
     -ms-transition: transform 0.3s ease;
     -o-transition: transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .scale-on-hover:hover {
-    filter: brightness(1);
-    transform: scale(1.02);
     -webkit-transform: scale(1.02);
     -moz-transform: scale(1.02);
     -ms-transform: scale(1.02);
     -o-transform: scale(1.02);
+    transform: scale(1.02);
+    -webkit-filter: brightness(1);
+    filter: brightness(1);
 }
 
 .card-img-top {
