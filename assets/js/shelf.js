@@ -152,6 +152,7 @@ validation.addField("#return_date", [
 
 
 const showEntriesSelect = document.getElementById("showEntriesSelect");
+const msgSpan = document.getElementById("msg");
 showEntriesSelect.addEventListener("change", function () {
 
     const selectedValue = this.value;
@@ -165,4 +166,5 @@ showEntriesSelect.addEventListener("change", function () {
             bookElements[i].style.display = "none";
         }
     }
+    msgSpan.textContent = selectedValue.toString();
 });
