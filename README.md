@@ -65,7 +65,7 @@ List any prerequisites or dependencies that users need to have installed or conf
 ## Screenshots
 
 
-- [Dashboard](/Screenshots/dashboard.png)
+- [Dashboard](/Screenshots/Dashboard.png)
 - [Profile](Screenshots/Profile.png)
 - [Shelf](Screenshots/Shelf.png)
 - [users](/Screenshots/users.png)
